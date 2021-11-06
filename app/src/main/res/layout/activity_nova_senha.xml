@@ -57,7 +57,7 @@
                 android:id="@+id/idBotaoAlterar"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                style="@style/BotaoAcessar"
+                style="@style/estiloBotao"
                 android:layout_gravity="center"
                 android:text="@string/alterar"/>
             <!--android:onClick="botaoAcessar" -->
@@ -68,7 +68,7 @@
                 android:id="@+id/idBotaoAcessar"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                style="@style/BotaoAcessar"
+                style="@style/estiloBotao"
                 android:layout_gravity="center"
                 android:visibility="gone"
                 android:text="@string/acessar"/>

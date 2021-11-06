@@ -3,7 +3,7 @@
 
     <string name="novoCadastro">Novo Cadastro</string>
     <string name="mudarSenha">Esqueci a Senha</string>
-    <string name="acessar">ACESSAR</string>
+    <string name="acessar">Acessar sem login</string>
     <string name="cadastrar">CADASTRAR</string>
     <string name="alterar">ALTERAR</string>
     <string name="titPrincipal">Página Principal</string>

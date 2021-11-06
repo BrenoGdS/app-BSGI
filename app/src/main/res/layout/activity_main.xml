@@ -78,12 +78,20 @@
                 android:id="@+id/idBotaoAcessar"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                style="@style/BotaoAcessar"
+                style="@style/estiloBotao"
                 android:layout_gravity="center"
                 android:text="@string/acessar"/>
             <!--android:onClick="botaoAcessar" -->
             <!--android:id="@+id/idBotaoAcessar" -->
             <!--android:text="ACESSAR" -->
+
+            <Button
+                android:id="@+id/idBotaoLogin"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/estiloBotao"
+                android:layout_gravity="center"
+                android:text="Login"/>
 
 
 

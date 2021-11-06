@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/verticalbackground"
     tools:context=".Principal">
 
     <ScrollView
@@ -31,10 +32,12 @@
                 style="@style/Titulo"
                 android:text="@string/titPrincipal"/>
 
+            <!--
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="900dp"
                 android:src="@drawable/verticalbackground"/>
+                -->
 
 
         </LinearLayout>
