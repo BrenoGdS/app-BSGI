@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+                -->
+
+            <ImageView
+                android:id="@+id/idLogo"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:src="@drawable/bsgilogo3c"
+                android:layout_gravity="center"
+                android:layout_marginTop="80dp"/>
+
+            <EditText
+                android:id="@+id/editEmail"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/Input"
+                android:hint="E-Mail"
+                android:inputType="textEmailAddress"
+                android:layout_gravity="center"/>
+            <EditText
+                android:id="@+id/editSenha"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/Input"
+                android:hint="Senha"
+                android:inputType="textPassword"
+                android:layout_gravity="center"/>
+
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/idNovoCadastro"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/novoCadastro"/>
+                <!-- android:text="Novo Cadastro" -->
+                <!-- android:text="@string/novoCadastro"-->
+                <!-- android:onClick="novoCadastro"-->
+                <TextView
+                    android:id="@+id/idRecuperarSenha"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mudarSenha"
+                    android:textAlignment="textEnd"/>
+                <!--android:text="Esqueci a Senha" -->
+            </GridLayout>
+
+            <Button
+                android:id="@+id/idBotaoAcessar"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/BotaoAcessar"
+                android:layout_gravity="center"
+                android:text="@string/acessar"/>
+            <!--android:onClick="botaoAcessar" -->
+            <!--android:id="@+id/idBotaoAcessar" -->
+            <!--android:text="ACESSAR" -->
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

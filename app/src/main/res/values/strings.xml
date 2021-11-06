@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">appBSGI</string>
+
+    <string name="novoCadastro">Novo Cadastro</string>
+    <string name="mudarSenha">Esqueci a Senha</string>
+    <string name="acessar">ACESSAR</string>
+    <string name="cadastrar">CADASTRAR</string>
+    <string name="alterar">ALTERAR</string>
+    <string name="titPrincipal">Página Principal</string>
+</resources>

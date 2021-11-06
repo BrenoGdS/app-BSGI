@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Cadastro">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!--android:layout_gravity="center" -->
+
+            <ImageView
+                android:id="@+id/idLogo"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:src="@drawable/bsgilogo3c"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"/>
+            <!--android:layout_marginTop="40dp"-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="54dp"
+                android:text="Novo cadastro"/>
+            <EditText
+                android:id="@+id/editNome"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/Input"
+                android:hint="Nome Completo"
+                android:inputType="text"
+                android:layout_gravity="center"/>
+            <EditText
+                android:id="@+id/editEmail"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/Input"
+                android:hint="E-Mail"
+                android:inputType="textEmailAddress"
+                android:layout_gravity="center"/>
+            <EditText
+                android:id="@+id/editSenha"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/Input"
+                android:hint="Senha"
+                android:inputType="textPassword"
+                android:layout_gravity="center"/>
+            <EditText
+                android:id="@+id/editRepetirSenha"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/Input"
+                android:hint="Repetir Senha"
+                android:inputType="textPassword"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/idBotaoCadastrar"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/BotaoAcessar"
+                android:layout_gravity="center"
+                android:text="@string/cadastrar"/>
+            <!--android:onClick="botaoAcessar" -->
+            <!--android:id="@+id/idBotaoAcessar" -->
+            <!--android:text="CADASTRAR" -->
+
+            <Button
+                android:id="@+id/idBotaoAcessar"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/BotaoAcessar"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:text="@string/acessar"/>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
