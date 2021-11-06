@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppBSGI">
         <activity
+            android:name=".ConsultaEvento"
+            android:exported="false" />
+        <activity
             android:name=".Cadastro"
             android:exported="false" />
         <activity

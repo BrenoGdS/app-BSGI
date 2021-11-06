@@ -20,7 +20,7 @@
         <item name="android:padding">15dp</item>
         <item name="android:layout_margin">10dp</item>
     </style>
-    <style name="BotaoAcessar">
+    <style name="estiloBotao">
         <item name="android:backgroundTint">@color/dodgerBlue</item>
         <item name="android:padding">15dp</item>
         <item name="android:layout_margin">10dp</item>
@@ -35,6 +35,8 @@
         <item name="android:background">@color/dodgerBlue</item>
         <!--<item name="android:radius">10dp</item>-->
     </style>
+
+
 
 
 </resources>
