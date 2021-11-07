@@ -23,19 +23,30 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="80dp"/>
 
+
+            <!--
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="54dp"
-                android:text="Alterar senha"/>
+                android:text="Esqueci a senha"/>
+            -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="54dp"
+                android:text="@string/resgatarSenha"/>
+            <!--android:text="@string/informeEmail" -->
             <EditText
                 android:id="@+id/editEmail"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 style="@style/Input"
-                android:hint="E-Mail"
+                android:hint="Insira seu e-mail"
                 android:inputType="textEmailAddress"
                 android:layout_gravity="center"/>
+
+            <!--
             <EditText
                 android:id="@+id/editNovaSenha"
                 android:layout_width="300dp"
@@ -52,26 +63,18 @@
                 android:hint="Repetir Senha"
                 android:inputType="textPassword"
                 android:layout_gravity="center"/>
+                -->
 
             <Button
-                android:id="@+id/idBotaoAlterar"
+                android:id="@+id/idBotaoEnviar"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 style="@style/estiloBotao"
                 android:layout_gravity="center"
-                android:text="@string/alterar"/>
+                android:text="@string/enviar"/>
             <!--android:onClick="botaoAcessar" -->
             <!--android:id="@+id/idBotaoAcessar" -->
             <!--android:text="ALTERAR" -->
-
-            <Button
-                android:id="@+id/idBotaoAcessar"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                style="@style/estiloBotao"
-                android:layout_gravity="center"
-                android:visibility="gone"
-                android:text="@string/acessar"/>
 
 
 

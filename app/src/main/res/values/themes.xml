@@ -21,14 +21,10 @@
         <item name="android:layout_margin">10dp</item>
     </style>
     <style name="estiloBotao">
-        <item name="android:backgroundTint">@color/dodgerBlue</item>
+        <item name="android:backgroundTint">@color/azulBsgi</item>
         <item name="android:padding">15dp</item>
         <item name="android:layout_margin">10dp</item>
-    </style>
-    <style name="estiloBotao">
-        <item name="android:backgroundTint">@color/dodgerBlue</item>
-        <item name="android:padding">15dp</item>
-        <item name="android:layout_margin">10dp</item>
+        <!--<item name="android:backgroundTint">@color/dodgerBlue</item>-->
         <!--<item name="android:radius">20dp</item>-->
     </style>
 
@@ -38,10 +34,17 @@
         <item name="android:textAlignment">center</item>
         <item name="android:padding">15dp</item>
         <item name="android:layout_margin">10dp</item>
-        <item name="android:background">@color/dodgerBlue</item>
+        <item name="android:background">@color/azulBsgi</item>
+        <!--<item name="android:background">@color/dodgerBlue</item>-->
         <!--<item name="android:radius">10dp</item>-->
     </style>
 
+    <!-- Testes -->
+    <style name="barraColorida">
+        <item name="android:shape">line</item>
+        <item name="android:gradientRadius"></item>
+        <item name="android:background">@color/azulBsgi</item>
+    </style>
 
 
 

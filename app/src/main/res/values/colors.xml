@@ -9,5 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="input">#F0F8FF</color>
     <color name="dodgerBlue">#1E90FF</color>
+    <color name="azulBsgi">#0282be</color>
+
+
 
 </resources>

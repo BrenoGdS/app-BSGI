@@ -13,11 +13,13 @@ import model.Usuario
 class Cadastro : AppCompatActivity() {
 
     lateinit var editNome: EditText
+    lateinit var editCelular: EditText
+    //spinnerSexo
     lateinit var editEmail: EditText
     lateinit var editSenha: EditText
     lateinit var editRepetirSenha: EditText
     lateinit var botaoCadastrar: Button
-    lateinit var botaoAcessar: Button
+    //lateinit var botaoAcessar: Button
 
     lateinit var bd: SQLiteDatabase // banco de dados local
     lateinit var values: ContentValues
@@ -40,6 +42,8 @@ class Cadastro : AppCompatActivity() {
     fun linkarDados(){
         //variáveis Kotlin (acima) -> variáveis xml
         editNome  = findViewById(R.id.editNome)
+        editCelular = findViewById(R.id.editCelular)
+        //spinnerSexo
         editEmail = findViewById(R.id.editEmail)
         editSenha = findViewById(R.id.editSenha)
         editRepetirSenha = findViewById(R.id.editRepetirSenha)
@@ -49,22 +53,21 @@ class Cadastro : AppCompatActivity() {
             insert()
             //update()
         }
-        botaoAcessar = findViewById(R.id.idBotaoAcessar)
-        botaoAcessar.setOnClickListener(){
-            acessar()
-        }
+
 
     }
 
     fun criarAbrirBD(){
         bd = openOrCreateDatabase("nomeBD.db", MODE_PRIVATE, null)
-        bd.execSQL("CREATE TABLE IF NOT EXISTS tbNova(nome varchar(60) NOT NULL, email varchar(60) NOT NULL, senha varchar(15) NOT NULL)")
+        bd.execSQL("CREATE TABLE IF NOT EXISTS tbNova(nome varchar(60) NOT NULL, celular bigint(11), email varchar(60) NOT NULL, senha varchar(15) NOT NULL)")
 
     }
 
+    // falta spinnerSexo
     fun insert(){
         usuario = Usuario(
             editNome.text.toString(),
+            editCelular.text.toString(),
             editEmail.text.toString(),
             editSenha.text.toString()
         )

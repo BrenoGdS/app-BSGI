@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var editEmail: EditText
     lateinit var editSenha: EditText
     lateinit var botaoAcessar: Button
+    lateinit var botaoLogin:   Button
 
 
     lateinit var bd: SQLiteDatabase // banco de dados local
@@ -41,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         val recupSenha = findViewById<TextView>(R.id.idRecuperarSenha)
         recupSenha.setOnClickListener(){
-            mudarSenha()
+            recuperarSenha()
         }
 
         linkarDados()
@@ -58,6 +59,10 @@ class MainActivity : AppCompatActivity() {
         botaoAcessar = findViewById(R.id.idBotaoAcessar)
         botaoAcessar.setOnClickListener(){
             acessar()
+        }
+        botaoLogin = findViewById(R.id.idBotaoLogin)
+        botaoLogin.setOnClickListener(){
+            validarUsuario()
         }
 
     }
@@ -79,9 +84,15 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun mudarSenha(){
+    fun recuperarSenha(){
         val intent = Intent(this, NovaSenha::class.java)
         startActivity(intent)
     }
+
+
+    fun validarUsuario(){
+        Toast.makeText(this,"Usuário não verificado", Toast.LENGTH_LONG).show()
+    }
+
 
 }

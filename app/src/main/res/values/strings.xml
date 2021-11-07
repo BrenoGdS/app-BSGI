@@ -2,17 +2,26 @@
     <string name="app_name">appBSGI</string>
 
     <string name="novoCadastro">Novo Cadastro</string>
-    <string name="mudarSenha">Esqueci a Senha</string>
-    <string name="acessar">Acessar sem login</string>
+    <string name="resgatarSenha">Esqueci a Senha</string>
+    <string name="acessar">Acessar (sem login)</string>
     <string name="cadastrar">CADASTRAR</string>
     <string name="alterar">ALTERAR</string>
+    <string name="enviar">ENVIAR</string>
+    <string name="informeEmail">Por favor, insira seu e-mail:</string>
     <string name="titPrincipal">Página Principal</string>
+
+    <string-array name="sexo">
+        <item>Feminino</item>
+        <item>Masculino</item>
+        <item>Não informar</item>
+    </string-array>
 
     <string-array name="estados">
         <item>Acre</item>
         <item>Alagoas</item>
         <item>Amapá</item>
         <item>Bahia</item>
+        <item>Distrito Federal</item>
         <item>Espírito Santo</item>
         <item>Goiás</item>
         <item>Maranhão</item>
@@ -32,6 +41,5 @@
         <item>São Paulo</item>
         <item>Sergipe</item>
         <item>Tocantins</item>
-        <item>Distrito Federal</item>
     </string-array>
 </resources>

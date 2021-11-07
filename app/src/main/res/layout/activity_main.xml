@@ -31,7 +31,7 @@
                 android:layout_height="200dp"
                 android:src="@drawable/bsgilogo3c"
                 android:layout_gravity="center"
-                android:layout_marginTop="80dp"/>
+                android:layout_marginTop="5dp"/>
 
             <EditText
                 android:id="@+id/editEmail"
@@ -39,8 +39,9 @@
                 android:layout_height="wrap_content"
                 style="@style/Input"
                 android:hint="E-Mail"
-                android:inputType="textEmailAddress"
+
                 android:layout_gravity="center"/>
+            <!-- android:inputType="textEmailAddress" -->
             <EditText
                 android:id="@+id/editSenha"
                 android:layout_width="300dp"
@@ -69,7 +70,7 @@
                     android:id="@+id/idRecuperarSenha"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/mudarSenha"
+                    android:text="@string/resgatarSenha"
                     android:textAlignment="textEnd"/>
                 <!--android:text="Esqueci a Senha" -->
             </GridLayout>
@@ -92,6 +93,7 @@
                 style="@style/estiloBotao"
                 android:layout_gravity="center"
                 android:text="Login"/>
+            <!-- android:visibility="gone" -->
 
 
 

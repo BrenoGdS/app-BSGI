@@ -26,6 +26,18 @@
                 android:layout_height="match_parent"
                 android:paddingLeft="15dp"
                 android:text="Menu Página principal"/>
+
+            <!-- Testes -->
+            <ImageView
+                android:id="@+id/barraColorida"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="10dp"
+                style="@style/barraColorida"
+                />
+
+
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
