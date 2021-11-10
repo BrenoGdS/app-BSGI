@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 style="@style/Input"
                 android:hint="E-Mail"
-
+                android:inputType="textEmailAddress"
                 android:layout_gravity="center"/>
             <!-- android:inputType="textEmailAddress" -->
             <EditText

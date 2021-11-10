@@ -60,7 +60,20 @@ class NovaSenha : AppCompatActivity() {
 
     fun enviar(){
         // verificar no BD se o email está cadastrado. Se não estiver, enviar erro. Se estiver, confirmar envio
-        Toast.makeText(this,"E-mail enviado. Verifique seu e-mail.", Toast.LENGTH_LONG).show()
+        //Toast.makeText(this,"E-mail não cadastrado", Toast.LENGTH_LONG).show()
+
+        /* está pedindo celular, nome, etc
+        usuario = Usuario(
+            editEmail.text.toString()
+        )
+
+        values = ContentValues()
+        values.put("email",usuario.email)
+        */
+
+
+
+        Toast.makeText(this,"Senha enviada. Verifique seu e-mail.", Toast.LENGTH_LONG).show()
 
         limpar()
     }

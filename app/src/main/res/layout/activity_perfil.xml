@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Perfil">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/idLogoPerfil"
+                android:layout_width="170dp"
+                android:layout_height="85dp"
+                android:paddingLeft="15dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/bsgilogo3c"/>
+            <ImageView
+                android:id="@+id/tituloPerfil"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                style="@style/Titulo"/>
+
+            <EditText
+                android:id="@+id/editNome"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/Input"
+                android:hint="Seu Nome Completo cadastrado"
+                android:inputType="text"
+                android:layout_gravity="center"/>
+            <EditText
+                android:id="@+id/editCelular"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/Input"
+                android:hint="Seu Celular"
+                android:inputType="number"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="54dp"
+                android:text="Sexo:"/>
+            <Spinner
+                android:id="@+id/spinnerSexo"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:paddingLeft="7dp"
+                android:layout_gravity="center"
+                android:entries="@array/sexo"/>
+
+            <EditText
+                android:id="@+id/editEmail"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/Input"
+                android:hint="Seu E-Mail"
+                android:inputType="textEmailAddress"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/editSenha"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/Input"
+                android:hint="Informar Senha"
+                android:inputType="textPassword"
+                android:layout_gravity="center"/>
+
+
+            <Button
+                android:id="@+id/idBotaoAlterar"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/estiloBotao"
+                android:layout_gravity="center"
+                android:text="@string/alterar"/>
+            <Button
+                android:id="@+id/idBotaoCadastrar"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/estiloBotao"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:text="@string/cadastrar"/>
+
+            <Button
+                android:id="@+id/idBotaoExcluir"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/estiloBotao"
+                android:layout_gravity="center"
+                android:text="@string/excluir"/>
+
+            <Button
+                android:id="@+id/idBotaoCadastrarAtividade"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/estiloBotao"
+                android:layout_gravity="center"
+                android:text="Cadastrar Atividade"/>
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

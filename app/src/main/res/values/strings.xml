@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">appBSGI</string>
+    <string name="app_name">App BSGI</string>
 
     <string name="novoCadastro">Novo Cadastro</string>
     <string name="resgatarSenha">Esqueci a Senha</string>
@@ -7,6 +7,7 @@
     <string name="cadastrar">CADASTRAR</string>
     <string name="alterar">ALTERAR</string>
     <string name="enviar">ENVIAR</string>
+    <string name="excluir">EXCLUIR</string>
     <string name="informeEmail">Por favor, insira seu e-mail:</string>
     <string name="titPrincipal">Página Principal</string>
 
