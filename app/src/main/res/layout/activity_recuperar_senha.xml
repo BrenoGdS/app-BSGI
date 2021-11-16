@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NovaSenha">
+    tools:context=".RecuperarSenha">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -14,7 +14,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
             <ImageView
                 android:id="@+id/idLogo"
                 android:layout_width="300dp"
@@ -23,14 +22,6 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="80dp"/>
 
-
-            <!--
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="54dp"
-                android:text="Esqueci a senha"/>
-            -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,25 +37,6 @@
                 android:inputType="textEmailAddress"
                 android:layout_gravity="center"/>
 
-            <!--
-            <EditText
-                android:id="@+id/editNovaSenha"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                style="@style/Input"
-                android:hint="Nova Senha"
-                android:inputType="textPassword"
-                android:layout_gravity="center"/>
-            <EditText
-                android:id="@+id/editRepetirSenha"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                style="@style/Input"
-                android:hint="Repetir Senha"
-                android:inputType="textPassword"
-                android:layout_gravity="center"/>
-                -->
-
             <Button
                 android:id="@+id/idBotaoEnviar"
                 android:layout_width="300dp"
@@ -75,7 +47,6 @@
             <!--android:onClick="botaoAcessar" -->
             <!--android:id="@+id/idBotaoAcessar" -->
             <!--android:text="ALTERAR" -->
-
 
 
 

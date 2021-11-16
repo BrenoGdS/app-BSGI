@@ -9,8 +9,11 @@
         android:roundIcon="@drawable/bsgilogo3c"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppBSGI">
-        <!--android:icon="@mipmap/ic_launcher" -->
-        <!--android:roundIcon="@mipmap/ic_launcher_round" -->
+        <activity
+            android:name=".RecuperarSenha"
+            android:exported="false" />
+        <!-- android:icon="@mipmap/ic_launcher" -->
+        <!-- android:roundIcon="@mipmap/ic_launcher_round" -->
         <activity
             android:name=".Perfil"
             android:exported="false" />
@@ -19,9 +22,6 @@
             android:exported="false" />
         <activity
             android:name=".Cadastro"
-            android:exported="false" />
-        <activity
-            android:name=".NovaSenha"
             android:exported="false" />
         <activity
             android:name=".Principal"
