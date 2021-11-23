@@ -37,12 +37,11 @@
                 />
 
 
-
             <ImageView
+                style="@style/Titulo"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                style="@style/Titulo"
-                android:text="@string/titPrincipal"/>
+                android:text="@string/titPrincipal" />
 
             <!--
             <ImageView
