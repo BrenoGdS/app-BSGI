@@ -4,12 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidStudioProjects/app-BSGI/app/src/main/res/layout/activity_cadastro.xml" value="0.264" />
-        <entry key="..\:/AndroidStudioProjects/app-BSGI/app/src/main/res/layout/activity_consulta_evento.xml" value="0.16354166666666667" />
+        <entry key="..\:/AndroidStudioProjects/app-BSGI/app/src/main/res/layout/activity_cadastro_atividade.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/app-BSGI/app/src/main/res/layout/activity_consulta_evento.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/app-BSGI/app/src/main/res/layout/activity_main.xml" value="0.23233695652173914" />
         <entry key="..\:/AndroidStudioProjects/app-BSGI/app/src/main/res/layout/activity_nova_senha.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/app-BSGI/app/src/main/res/layout/activity_perfil.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/app-BSGI/app/src/main/res/layout/activity_principal.xml" value="0.176" />
-        <entry key="..\:/AndroidStudioProjects/app-BSGI/app/src/main/res/layout/activity_recuperar_senha.xml" value="0.153125" />
+        <entry key="..\:/AndroidStudioProjects/app-BSGI/app/src/main/res/layout/activity_recuperar_senha.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/appBSGI/app/src/main/res/layout/activity_cadastro.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/appBSGI/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/appBSGI/app/src/main/res/layout/activity_nova_senha.xml" value="0.264" />
