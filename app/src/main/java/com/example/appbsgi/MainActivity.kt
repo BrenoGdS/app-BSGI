@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun recuperarSenha(){
-        val intent = Intent(this, NovaSenha::class.java)
+        val intent = Intent(this, RecuperarSenha::class.java)
         startActivity(intent)
     }
 

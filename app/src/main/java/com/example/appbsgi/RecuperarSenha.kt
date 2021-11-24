@@ -1,7 +1,6 @@
 package com.example.appbsgi
 
 import android.content.ContentValues
-import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,7 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import model.Usuario
 
-class NovaSenha : AppCompatActivity() {
+class RecuperarSenha : AppCompatActivity() {
 
     lateinit var editEmail: EditText
 
@@ -24,11 +23,9 @@ class NovaSenha : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_nova_senha)
-
+        setContentView(R.layout.activity_recuperar_senha)
 
         linkarDados()
-
     }
 
     fun linkarDados() {
@@ -42,17 +39,13 @@ class NovaSenha : AppCompatActivity() {
     }
 
 
-
-        /*
+    /*
         //Não precisa disso
     fun criarAbrirBD(){
         bd = openOrCreateDatabase("nomeBD.db", MODE_PRIVATE, null)
         bd.execSQL("CREATE TABLE IF NOT EXISTS tbNova(email varchar(60) NOT NULL, senha varchar(15) NOT NULL)")
     }
         */
-
-
-
 
 
 
@@ -72,7 +65,6 @@ class NovaSenha : AppCompatActivity() {
         */
 
 
-
         Toast.makeText(this,"Senha enviada. Verifique seu e-mail.", Toast.LENGTH_LONG).show()
 
         limpar()
@@ -86,4 +78,3 @@ class NovaSenha : AppCompatActivity() {
 
 
 }
-

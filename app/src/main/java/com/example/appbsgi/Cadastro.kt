@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.Toast
 import model.Usuario
 
@@ -14,7 +15,7 @@ class Cadastro : AppCompatActivity() {
 
     lateinit var editNome: EditText
     lateinit var editCelular: EditText
-    //spinnerSexo
+    lateinit var sexo: Spinner
     lateinit var editEmail: EditText
     lateinit var editSenha: EditText
     lateinit var editRepetirSenha: EditText
@@ -22,6 +23,7 @@ class Cadastro : AppCompatActivity() {
     //lateinit var botaoAcessar: Button
     //botão provisório para teste:
     lateinit var botaoEditarPerfil: Button
+
 
 
     lateinit var bd: SQLiteDatabase // banco de dados local
@@ -46,7 +48,8 @@ class Cadastro : AppCompatActivity() {
         //variáveis Kotlin (acima) -> variáveis xml
         editNome  = findViewById(R.id.editNome)
         editCelular = findViewById(R.id.editCelular)
-        //spinnerSexo
+        sexo = findViewById(R.id.spinnerSexo)
+
         editEmail = findViewById(R.id.editEmail)
         editSenha = findViewById(R.id.editSenha)
         editRepetirSenha = findViewById(R.id.editRepetirSenha)
@@ -76,6 +79,7 @@ class Cadastro : AppCompatActivity() {
         usuario = Usuario(
             editNome.text.toString(),
             editCelular.text.toString(),
+            sexo.selectedItem.toString(),
             editEmail.text.toString(),
             editSenha.text.toString()
         )
@@ -94,12 +98,14 @@ class Cadastro : AppCompatActivity() {
         usuario = Usuario(
             editNome.text.toString(),
             editCelular.text.toString(),
+            sexo.selectedItem.toString(),
             editEmail.text.toString(),
             editSenha.text.toString()
         )
         values = ContentValues()
         values.put("nome",usuario.nome)
         values.put("celular",usuario.celular)
+        values.put("sexo",usuario.sexo)
         values.put("email",usuario.email)
         values.put("senha",usuario.senha)
 

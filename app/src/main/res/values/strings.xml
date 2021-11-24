@@ -5,6 +5,8 @@
     <string name="resgatarSenha">Esqueci a Senha</string>
     <string name="acessar">Acessar (sem login)</string>
     <string name="cadastrar">CADASTRAR</string>
+    <string name="salvar">SALVAR</string>
+    <string name="voltar">VOLTAR</string>
     <string name="alterar">ALTERAR</string>
     <string name="enviar">ENVIAR</string>
     <string name="excluir">EXCLUIR</string>
@@ -15,6 +17,25 @@
         <item>Feminino</item>
         <item>Masculino</item>
         <item>Não informar</item>
+    </string-array>
+
+    <string-array name="organizacao">
+        <item>Organizacao 1</item>
+        <item>Organizacao 2</item>
+        <item>Organizacao xpto</item>
+    </string-array>
+
+    <string-array name="tipoEvento">
+        <item>Palestra</item>
+        <item>Exposição Cultural</item>
+        <item>Seminário</item>
+    </string-array>
+
+    <string-array name="cidade">
+        <item>Brasília</item>
+        <item>Belo Horizonte</item>
+        <item>Rio de Janeiro</item>
+        <item>Ouro Preto</item>
     </string-array>
 
     <string-array name="estados">

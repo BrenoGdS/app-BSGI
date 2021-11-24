@@ -1,5 +1,6 @@
 package model
 
+
 class Evento {
 
     lateinit var organizacao:String
@@ -40,6 +41,7 @@ class Evento {
     override fun toString(): String {
         return "Evento(idevento=$idevento, organizacao='$organizacao', estado='$estado', data='$data', titulo='$titulo', logradouroevento='$logradouroevento')"
     }
+
 
 
 }
