@@ -44,7 +44,7 @@ class Perfil : AppCompatActivity() {
             //update()
         }
 
-        listViewUsuario = findViewById(R.id.listViewUsuario)
+        //listViewUsuario = findViewById(R.id.listViewUsuario)
         listViewUsuario.setOnItemClickListener { parent, view, position, id ->
             usuario = Usuario(
                 arrayUsuario[position].id,

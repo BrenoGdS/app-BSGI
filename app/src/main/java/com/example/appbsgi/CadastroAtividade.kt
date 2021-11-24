@@ -30,7 +30,6 @@ class CadastroAtividade : AppCompatActivity() {
         setContentView(R.layout.activity_cadastro)
 
         linkarDados()
-        criarAbrirBD()
     }
 
     fun linkarDados(){
@@ -53,15 +52,7 @@ class CadastroAtividade : AppCompatActivity() {
 
     }
 
-    fun criarAbrirBD(){
-        //bd = openOrCreateDatabase("bdappbsgi.db", MODE_PRIVATE, null)
-        //bd.execSQL("CREATE TABLE IF NOT EXISTS tbappbsgi(nome varchar(60) NOT NULL, celular bigint(11), email varchar(60) NOT NULL, senha varchar(15) NOT NULL)")
-
-    }
-
-    // falta spinnerSexo
-    // verificar se usuário já está cadastrado
-    fun insert() {
+    fun insert() {/*
         evento = Evento(
             0, // idEvento
             1, //idOrganizacao:Int,
@@ -74,7 +65,7 @@ class CadastroAtividade : AppCompatActivity() {
             editNumeroEndereco.text.toString(), //numEvento:String,
             editComplemento.text.toString(), //complementoEvento:String,
             "bairro" //bairro
-        )
+        )*/
     }
 
 }
