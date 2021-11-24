@@ -26,14 +26,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="54dp"
-                android:text="@string/resgatarSenha"/>
+                android:text="@string/informeEmail"/>
             <!--android:text="@string/informeEmail" -->
+            <!--android:text="@string/resgatarSenha" -->
             <EditText
                 android:id="@+id/editEmail"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 style="@style/Input"
-                android:hint="Insira seu e-mail"
+                android:hint="Digite seu e-mail cadastrado"
                 android:inputType="textEmailAddress"
                 android:layout_gravity="center"/>
 

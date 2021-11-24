@@ -50,6 +50,13 @@
                 android:src="@drawable/verticalbackground"/>
                 -->
 
+            <Button
+                android:id="@+id/idBotaoEditarPerfil"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/estiloBotao"
+                android:layout_gravity="center"
+                android:text="Testando Perfil"/>
 
         </LinearLayout>
     </ScrollView>
