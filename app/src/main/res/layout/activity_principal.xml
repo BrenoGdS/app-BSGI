@@ -37,12 +37,11 @@
                 />
 
 
-
             <ImageView
+                style="@style/Titulo"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                style="@style/Titulo"
-                android:text="@string/titPrincipal"/>
+                android:text="@string/titPrincipal" />
 
             <!--
             <ImageView
@@ -51,6 +50,13 @@
                 android:src="@drawable/verticalbackground"/>
                 -->
 
+            <Button
+                android:id="@+id/idBotaoEditarPerfil"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/estiloBotao"
+                android:layout_gravity="center"
+                android:text="Testando Perfil"/>
 
         </LinearLayout>
     </ScrollView>

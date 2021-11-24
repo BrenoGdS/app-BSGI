@@ -84,7 +84,6 @@
                 android:text="@string/acessar"/>
             <!--android:onClick="botaoAcessar" -->
             <!--android:id="@+id/idBotaoAcessar" -->
-            <!--android:text="ACESSAR" -->
 
             <Button
                 android:id="@+id/idBotaoLogin"
@@ -94,7 +93,6 @@
                 android:layout_gravity="center"
                 android:text="Login"/>
             <!-- android:visibility="gone" -->
-
 
 
 

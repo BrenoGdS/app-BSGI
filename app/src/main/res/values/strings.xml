@@ -10,8 +10,10 @@
     <string name="alterar">ALTERAR</string>
     <string name="enviar">ENVIAR</string>
     <string name="excluir">EXCLUIR</string>
-    <string name="informeEmail">Por favor, insira seu e-mail:</string>
+    <string name="informeEmail">Esqueceu a senha?</string>
     <string name="titPrincipal">Página Principal</string>
+    <!--<string name="informeEmail">Por favor, insira seu e-mail:</string> -->
+    <!--<string name="informeEmail">Esqueceu a senha? Digite seu e-mail cadastrado:</string> -->
 
     <string-array name="sexo">
         <item>Feminino</item>

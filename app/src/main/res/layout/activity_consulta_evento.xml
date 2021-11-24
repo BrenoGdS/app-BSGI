@@ -28,12 +28,11 @@
 
 
 
-            <TextView
-                style="@style/Input"
+            <ImageView
+                style="@style/Titulo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textNiver"
-                android:text="Encontrar Atividades"/>
+                android:layout_height="50dp"
+                android:text="@string/titPrincipal" />
 
             <EditText
                 android:autofillHints="name"
@@ -42,12 +41,11 @@
                 android:id="@+id/editNome"
                 android:inputType="text"
                 style="@style/Input"
-                android:hint="Nome"/>
+                android:hint="Nome(Bloco, Comunidade ou Distrito)"/>
             <Spinner
                 android:entries="@array/estados"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 style="@style/Input"
                 android:id="@+id/spinnerPais"/>
 
@@ -63,12 +61,6 @@
                 android:layout_height="250dp"
                 android:layout_gravity="center"/>
 
-
-
-
-
-
-
             <EditText
                 android:autofillHints="name"
                 android:layout_width="match_parent"
@@ -82,13 +74,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="name"
-                android:hint="Endereco"
+                android:hint="Endereco (da sede, bloco, etc...)"
                 style="@style/Input"
                 android:inputType="text" />
-
-
-
-
 
             <Button
                 android:id="@+id/buttonPesquisar"
@@ -98,18 +86,10 @@
                 android:text="Pesquisar" />
 
             <ListView
-                android:id="@+id/listViewTimes"
+                android:id="@+id/listViewEventos"
                 style="@style/Input"
                 android:layout_width="match_parent"
                 android:layout_height="100dp" />
-
-            <ListView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <ListView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
 
 
 
