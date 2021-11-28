@@ -83,7 +83,7 @@ class Perfil : AppCompatActivity() {
                 usuario = Usuario(
                     //jsonObject.getInt("idusuario"),
                     jsonObject.getString("nomeusuario"),
-                    jsonObject.getString("telefoneusuario"),
+                    jsonObject.getInt("telefoneusuario"),
                     jsonObject.getString("sexo"),
                     jsonObject.getString("emailusuario"),
                     jsonObject.getString("senhausuario")
@@ -124,7 +124,7 @@ class Perfil : AppCompatActivity() {
             Response.Listener { s->
                 val jsonArray = JSONArray(s)
                 var jsonObject = jsonArray.getJSONObject(0)
-                val getIdJson = jsonObject.getString("idusuario")
+                val getIdJson = jsonObject.getString("idusuario")  // getInt?
                 val getEmailJson = jsonObject.getString("emailusuario")
 
                 // Como preencher os campos com os dados obtidos do Json/banco?

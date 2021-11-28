@@ -14,14 +14,14 @@ class Usuario(var nome:String, var celular:String, var sexo:String, var email:St
 class Usuario {
     var id:Int=0
     lateinit var nome: String
-    lateinit var celular: String
+    var celular: Int=0
     lateinit var sexo: String
     lateinit var email:String
     lateinit var senha:String
 
 
     //addUsuario
-    constructor(nome: String, celular: String, sexo: String, email: String, senha: String) {
+    constructor(nome: String, celular: Int, sexo: String, email: String, senha: String) {
         this.nome = nome
         this.celular = celular
         this.sexo = sexo
@@ -34,7 +34,7 @@ class Usuario {
     constructor(
         id: Int,
         nome: String,
-        celular: String,
+        celular: Int,
         sexo: String,
         email: String,
         senha: String
@@ -66,7 +66,7 @@ class Usuario {
 
 
     override fun toString(): String {
-        return "USUÁRIO: (id=$id, nome='$nome', celular='$celular', sexo='$sexo', email='$email', senha='$senha')"
+        return "USUÁRIO: (id=$id, nome='$nome', celular=$celular, sexo='$sexo', email='$email', senha='$senha')"
     }
 
 

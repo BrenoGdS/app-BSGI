@@ -78,7 +78,7 @@ class Cadastro : AppCompatActivity() {
     fun insert(){
         usuario = Usuario(
             editNome.text.toString(),
-            editCelular.text.toString(),
+            editCelular.text.toString().toInt(),     // VERIFICAR AQUI
             sexo.selectedItem.toString(),
             editEmail.text.toString(),
             editSenha.text.toString()
