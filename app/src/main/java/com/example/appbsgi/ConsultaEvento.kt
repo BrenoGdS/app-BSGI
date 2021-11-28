@@ -11,20 +11,46 @@ import org.json.JSONArray
 import com.android.volley.toolbox.StringRequest as StringRequest1
 
 class ConsultaEvento : AppCompatActivity() {
+    lateinit var editTituloEvento: EditText
+    lateinit var editOrganizacao: EditText
+    lateinit var spinnerTipoEvento: Spinner
+    lateinit var spinnerCidade: Spinner
+    lateinit var dateNiver: DatePicker
+    lateinit var buttonPesquisar: Button
     lateinit var listViewEventos: ListView
-    lateinit var arrayEventos: ArrayList<Evento>
-    lateinit var evento: Evento
-    lateinit var editNome: EditText
-    lateinit var spinnerEstado: Spinner
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_consulta_evento)
+        arrayEventos = ArrayList<Evento>()
+
         listViewEventos = findViewById(R.id.listViewEventos)
+        listViewEventos.setOnItemClickListener{ parent, view, position, id ->
+            evento = Evento()
+            editTituloEvento = findViewById(R.id.editTituloEvento)
+
+
+                arrayTimes[position].idevento,
+                arrayTimes[position].organizacao,
+                arrayTimes[position].idtipoevento,
+                arrayTimes[position].titulo,
+                arrayTimes[position].dataevento,
+                arrayTimes[position].cepevento,
+                arrayTimes[position].idcidadeevento),
+                arrayTimes[position].logradouroevento,
+                arrayTimes[position].numevento,
+                arrayTimes[position].complementoevento,
+                arrayTimes[position].bairroevento)
+
+
+            )
     }
 
     fun carregarEventosAPI() {
-        val url = "https://apiaulamobile.000webhostapp.com/apifutebol/getAllTimes.php"
+        val url = "https://apiaulamauricio.000webhostapp.com/apiPI/getAllEventos.php"
         val stringRequest = StringRequest1(
             Request.Method.GET,
             url,
@@ -36,11 +62,17 @@ class ConsultaEvento : AppCompatActivity() {
                     evento = Evento(
                         jsonObject.getInt("idevento"),
                         jsonObject.getString("organizacao"),
-                        jsonObject.getString("estado"),
-                        jsonObject.getString("data"),
                         jsonObject.getString("titulo"),
-                        jsonObject.getString("logradouroevento")
-                    )
+                        jsonObject.getString("dataevento"),
+                        jsonObject.getString("cepevento"),
+                        jsonObject.getString("cidadeevento"),
+                        jsonObject.getString("dataevento"),
+                        jsonObject.getString("logradouroevento "),
+                        jsonObject.getString("numevento "),
+                        jsonObject.getString("complementoevento"),
+                        jsonObject.getString("bairroevento  "),
+
+                        )
                     arrayEventos.add(evento);
                 }
 

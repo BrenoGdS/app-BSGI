@@ -20,13 +20,9 @@
 
             <ImageView
                 android:id="@+id/imageLogo"
-                android:layout_width="150dp"
+                android:layout_width="300dp"
                 android:layout_height="150dp"
                 android:src="@drawable/bsgilogo3c"/>
-
-
-
-
 
             <ImageView
                 style="@style/Titulo"
@@ -35,19 +31,36 @@
                 android:text="@string/titPrincipal" />
 
             <EditText
-                android:autofillHints="name"
+                android:id="@+id/editTituloEvento"
+                android:autofillHints="tituloEvento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editNome"
                 android:inputType="text"
                 style="@style/Input"
-                android:hint="Nome(Bloco, Comunidade ou Distrito)"/>
+                android:hint="Título"/>
+
+            <EditText
+                android:autofillHints="organizacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editOrganizacao"
+                android:inputType="text"
+                style="@style/Input"
+                android:hint="Nome da organização"/>
             <Spinner
-                android:entries="@array/estados"
+                android:entries="@array/tipoEvento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Input"
-                android:id="@+id/spinnerPais"/>
+                android:id="@+id/spinnerTipoEvento"/>
+
+            <Spinner
+                android:entries="@array/cidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Input"
+                android:id="@+id/spinnerCidade"/>
+
 
             <DatePicker
                 android:id="@+id/dateNiver"
@@ -55,28 +68,8 @@
                 android:layout_height="100dp"
                 android:calendarViewShown="false"
                 android:datePickerMode="spinner"/>
-            <CalendarView
-                android:id="@+id/calendarView"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:layout_gravity="center"/>
 
-            <EditText
-                android:autofillHints="name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/editEvento"
-                android:inputType="text"
-                style="@style/Input"
-                android:hint="Nome da Ativadade ou Evento"/>
-            <EditText
-                android:id="@+id/editEndereco"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints="name"
-                android:hint="Endereco (da sede, bloco, etc...)"
-                style="@style/Input"
-                android:inputType="text" />
+
 
             <Button
                 android:id="@+id/buttonPesquisar"

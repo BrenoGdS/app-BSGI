@@ -28,9 +28,12 @@
     </string-array>
 
     <string-array name="tipoEvento">
-        <item>Palestra</item>
+        <item>Reunião de Palestra</item>
+        <item>Reunião de Bloco</item>
+        <item>Encontro Cultural</item>
         <item>Exposição Cultural</item>
-        <item>Seminário</item>
+        <item>Reunião de estudo</item>
+
     </string-array>
 
     <string-array name="cidade">

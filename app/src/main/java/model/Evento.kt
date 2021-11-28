@@ -2,46 +2,23 @@ package model
 
 
 class Evento {
-
-    lateinit var organizacao:String
-    lateinit var estado:String
-    lateinit var data:String
-    lateinit var titulo:String
-    lateinit var logradouroevento:String
     var idevento: Int = 0
-
-    constructor(organizacao:String,estado:String,data:String,titulo:String,logradouroevento:String){
-        this.organizacao = organizacao
-        this.estado = estado
-        this.data = data
-        this.titulo = titulo
-        this.logradouroevento = logradouroevento
-
-    }
-
-    constructor(
-        idevento: Int,
-        organizacao: String,
-        estado: String,
-        data: String,
-        titulo: String,
-        logradouroevento: String
-    ) {
-        this.idevento = idevento
-        this.organizacao = organizacao
-        this.estado = estado
-        this.data = data
-        this.titulo = titulo
-        this.logradouroevento = logradouroevento
-    }
-    constructor(idevento:Int){
-        this.idevento = idevento
-    }
+    var organizacao: Int = 0
+    var idtipoevento: Int = 0
+    lateinit var titulo: String
+    lateinit var dataevento: String
+    var cepevento: Int = 0
+    var idcidadeevento: Int = 0
+    lateinit var logradouroevento: String
+    var numevento: Int = 0
+    lateinit var complementoevento: String
+    lateinit var bairroevento: String
 
     override fun toString(): String {
-        return "Evento(idevento=$idevento, organizacao='$organizacao', estado='$estado', data='$data', titulo='$titulo', logradouroevento='$logradouroevento')"
+        return "Evento(idevento=$idevento, organizacao=$organizacao, idtipoevento=$idtipoevento, titulo='$titulo', dataevento='$dataevento', cepevento=$cepevento, idcidadeevento=$idcidadeevento, logradouroevento='$logradouroevento', numevento=$numevento, complementoevento='$complementoevento', bairroevento='$bairroevento')"
     }
-
 
 
 }
+
+
