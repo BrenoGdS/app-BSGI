@@ -74,9 +74,9 @@
                 android:inputType="textPassword"
                 android:layout_gravity="center"/>
 
-            <ListView
+<!--            <ListView
                 android:layout_width=""
-                android:layout_height=""/>
+                android:layout_height=""/> -->
 
             <Button
                 android:id="@+id/idBotaoAlterar"

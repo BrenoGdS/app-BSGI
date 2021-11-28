@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
 
     fun acessar(){
         Toast.makeText(this,"Bem-vindo(a)", Toast.LENGTH_LONG).show()
-        val intent = Intent(this, Principal::class.java)
+        val intent = Intent(this, ConsultaEvento::class.java)
         startActivity(intent)
     }
 
