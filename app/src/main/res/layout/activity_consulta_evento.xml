@@ -51,14 +51,14 @@
                 android:entries="@array/tipoEvento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Input"
+                style="@style/Spinner"
                 android:id="@+id/spinnerTipoEvento"/>
 
             <Spinner
                 android:entries="@array/cidade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Input"
+                style="@style/Spinner"
                 android:id="@+id/spinnerCidade"/>
 
 
