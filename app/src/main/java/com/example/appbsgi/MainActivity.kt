@@ -90,8 +90,28 @@ class MainActivity : AppCompatActivity() {
 
 
     fun acessar(){
+
+        /*
         Toast.makeText(this,"Bem-vindo(a)", Toast.LENGTH_LONG).show()
         val intent = Intent(this, ConsultaEvento::class.java)
+        */
+//
+        /*
+        if (editEmail.text.toString().equals("") {
+                Toast.makeText(this, "Bem-vindo(a)", Toast.LENGTH_LONG).show()
+            }else{
+                Toast.makeText(this, "Bem-vindo(a) $usuario.nome", Toast.LENGTH_LONG).show()
+        }
+        */
+        if (!editEmail.text.toString().equals(null)) {
+                Toast.makeText(this, "Bem-vindo(a)1 $editEmail", Toast.LENGTH_LONG).show()
+            }else{
+                Toast.makeText(this, "Bem-vindo(a)2 ", Toast.LENGTH_LONG).show()
+            }
+
+        val intent = Intent(this, ConsultaEvento::class.java)
+        //val intent = Intent(this, Principal::class.java)
+
         startActivity(intent)
     }
 

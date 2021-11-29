@@ -59,6 +59,7 @@ class ConsultaEvento : AppCompatActivity() {
         }
     }
 
+    // /*
     fun carregarEventosAPI() {
 
         var evento = Evento(
@@ -74,6 +75,7 @@ class ConsultaEvento : AppCompatActivity() {
                 "&HTTP_DESCTIPOEVENTO=${evento.desctipoEvento}" +
                 "&HTTP_DESCCIDADE=${evento.descCidade}" +
                 "&HTTP_DATA=${evento.dataevento}"
+
         val stringRequest = StringRequest1(
             Request.Method.GET,
             url,
@@ -95,6 +97,7 @@ class ConsultaEvento : AppCompatActivity() {
                         jsonObject.getString("desctipoEvento"),
                         jsonObject.getString("nomeOrg"),
                         jsonObject.getString("descCidade")
+
                     )
                     arrayEventos.add(evento);
                 }
@@ -110,4 +113,5 @@ class ConsultaEvento : AppCompatActivity() {
         val requestQueue = Volley.newRequestQueue(this)
         requestQueue.add(stringRequest)
     }
+    //*/
 }
