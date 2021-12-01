@@ -1,11 +1,11 @@
 package com.example.appbsgi
 
-import android.content.ContentValues
 import android.content.Intent
-import android.database.sqlite.SQLiteDatabase
+//import android.content.ContentValues
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+//import android.database.sqlite.SQLiteDatabase
+//import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var botaoAcessar: Button
     lateinit var botaoLogin:   Button
 
-    // NÃO USA PARA API:
+    //sem uso
 
     lateinit var arrayUsuario: ArrayList<Usuario>
     lateinit var usuario: Usuario
@@ -39,16 +39,15 @@ class MainActivity : AppCompatActivity() {
         editEmail = findViewById(R.id.editEmail)
         editSenha = findViewById(R.id.editSenha)
 
+        botaoAcessar = findViewById(R.id.idBotaoAcessar)
+        botaoAcessar.setOnClickListener{
+            acessar()
+        }
         botaoLogin = findViewById(R.id.idBotaoLogin)
         botaoLogin.setOnClickListener{
             validarUsuario()
         }
 
-
-        val acessar = findViewById<Button>(R.id.idBotaoAcessar)
-        acessar.setOnClickListener(){
-            acessar()
-        }
 
         val cadNew = findViewById<TextView>(R.id.idNovoCadastro)
         cadNew.setOnClickListener(){
@@ -60,6 +59,13 @@ class MainActivity : AppCompatActivity() {
             recuperarSenha()
         }
 
+
+        /*
+        val acessar = findViewById<Button>(R.id.idBotaoAcessar)
+        acessar.setOnClickListener(){
+            acessar()
+        }*/
+        // NÃO USA PARA API:
                 //linkarDados()
                 //criarAbrirBD()
 
@@ -94,14 +100,14 @@ class MainActivity : AppCompatActivity() {
         //Toast.makeText(this, "Bem-vindo(a)", Toast.LENGTH_LONG).show()
 
         if (!editEmail.text.toString().equals("")) {
-                Toast.makeText(this, "Bem-vindo(a)1 $editEmail.toString()", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Bem-vindo(a)1 $editEmail.text.toString()", Toast.LENGTH_LONG).show()
             }else{
                 Toast.makeText(this, "Bem-vindo(a)2 ", Toast.LENGTH_LONG).show()
             }
 
 
         val intent = Intent(this, ConsultaEvento::class.java)
-        //val intent = Intent(this, Principal::class.java)
+        //val intent = Intent(this, Principal::class.java)  // opção anterior de teste
         startActivity(intent)
     }
 

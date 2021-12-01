@@ -64,7 +64,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/novoCadastro"/>
                 <!-- android:text="Novo Cadastro" -->
-                <!-- android:text="@string/novoCadastro"-->
                 <!-- android:onClick="novoCadastro"-->
                 <TextView
                     android:id="@+id/idRecuperarSenha"
@@ -83,7 +82,6 @@
                 android:layout_gravity="center"
                 android:text="@string/acessar"/>
             <!--android:onClick="botaoAcessar" -->
-            <!--android:id="@+id/idBotaoAcessar" -->
 
             <Button
                 android:id="@+id/idBotaoLogin"

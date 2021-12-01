@@ -60,13 +60,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:paddingLeft="54dp"
                 android:text="Organização:" />
-
             <Spinner
                 android:id="@+id/spinnerOrganizacao"
                 android:layout_width="229dp"
@@ -74,7 +72,6 @@
                 android:layout_gravity="center"
                 android:entries="@array/organizacao"
                 android:paddingLeft="7dp" />
-
         </LinearLayout>
 
 
@@ -89,20 +86,16 @@
 
 
 
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
                 <TextView
                     android:layout_width="141dp"
                     android:layout_height="match_parent"
                     android:paddingLeft="54dp"
                     android:text="Tipo Evento
                     :" />
-
                 <Spinner
                     android:id="@+id/spinnerTipoEvento"
                     android:layout_width="wrap_content"
@@ -110,9 +103,7 @@
                     android:layout_gravity="center"
                     android:entries="@array/tipoEvento"
                     android:paddingLeft="7dp" />
-
             </LinearLayout>
-
 
 
 
@@ -122,7 +113,6 @@
                 android:layout_height="100dp"
                 android:calendarViewShown="false"
                 android:datePickerMode="spinner"/>
-
             <TimePicker
                 android:id="@+id/horaEvento"
                 android:layout_width="match_parent"
@@ -141,53 +131,15 @@
                 android:inputType="number" />
 
 
-            <!--
-            <RadioGroup
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sexo:"/>
-                <GridLayout
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                <RadioButton
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="Feminino"
-                    android:layout_gravity="start"/>
-                <RadioButton
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="Masculino"
-                    android:layout_gravity="end"/>
-                </GridLayout>
-                <RadioButton
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="Não informar"
-                    android:layout_gravity="start"/>
-            </RadioGroup>
-            -->
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
                 <TextView
                     android:layout_width="141dp"
                     android:layout_height="match_parent"
                     android:paddingLeft="54dp"
                     android:text="Cidade:" />
-
                 <Spinner
                     android:id="@+id/spinnerCidade"
                     android:layout_width="wrap_content"
@@ -195,8 +147,8 @@
                     android:layout_gravity="center"
                     android:entries="@array/cidade"
                     android:paddingLeft="7dp" />
-
             </LinearLayout>
+
 
             <EditText
                 android:id="@+id/editEndereco"
@@ -241,9 +193,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/salvar" />
-            <!--android:onClick="botaoAcessar" -->
-            <!--android:id="@+id/idBotaoAcessar" -->
-            <!--android:text="CADASTRAR" -->
 
 
             <!-- Botão provisório -->
