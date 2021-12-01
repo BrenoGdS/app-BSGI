@@ -72,41 +72,6 @@
                 android:layout_gravity="center"
                 android:entries="@array/sexo"/>
 
-            <!--
-            <RadioGroup
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sexo:"/>
-                <GridLayout
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                <RadioButton
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="Feminino"
-                    android:layout_gravity="start"/>
-                <RadioButton
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="Masculino"
-                    android:layout_gravity="end"/>
-                </GridLayout>
-                <RadioButton
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="Não informar"
-                    android:layout_gravity="start"/>
-            </RadioGroup>
-            -->
-
 
             <EditText
                 android:id="@+id/editEmail"
@@ -143,6 +108,14 @@
             <!--android:onClick="botaoAcessar" -->
             <!--android:id="@+id/idBotaoAcessar" -->
             <!--android:text="CADASTRAR" -->
+
+            <Button
+                android:id="@+id/idBotaoLimpar"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                style="@style/estiloBotao"
+                android:layout_gravity="center"
+                android:text="@string/limpar"/>
 
 
             <!-- Botão provisório -->

@@ -1,11 +1,13 @@
 package com.example.appbsgi
 
-import android.app.DownloadManager
+
 import android.content.ContentValues
 import android.content.Intent
-import android.database.sqlite.SQLiteDatabase
+//import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.app.DownloadManager
+import android.provider.SyncStateContract.Helpers.update
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
@@ -26,8 +28,10 @@ class Cadastro : AppCompatActivity() {
     lateinit var editSenha: EditText
     lateinit var editRepetirSenha: EditText
     lateinit var botaoCadastrar: Button
+    lateinit var botaoLimpar: Button
     //lateinit var botaoAcessar: Button
-    //botão provisório para teste:
+
+    //botão provisório para teste - colocar no lugar certo:
     lateinit var botaoEditarPerfil: Button
 
     lateinit var usuario: Usuario
@@ -53,20 +57,23 @@ class Cadastro : AppCompatActivity() {
         botaoCadastrar.setOnClickListener(){
             insert()
         }
+        botaoLimpar = findViewById<Button>(R.id.idBotaoLimpar)
+        botaoLimpar.setOnClickListener(){
+            limpar()
+        }
 
 
-
-        // NÃO USA PARA API:
+        // provisório p/ teste:
         /*
-        val botaoCadastrar = findViewById<Button>(R.id.idBotaoCadastrar)
-        botaoCadastrar.setOnClickListener(){
-            insert()
+        botaoEditarPerfil = findViewById<Button>(R.id.idBotaoEditarPerfil)
+        botaoEditarPerfil.setOnClickListener(){
+            val intent = Intent(this, Perfil::class.java)
+            startActivity(intent)
+            //update()
         }
         */
 
 
-        // NÃO USA PARA API:
-        //linkarDados()
 
     }
 
@@ -84,12 +91,6 @@ class Cadastro : AppCompatActivity() {
             editSenha.text.toString()
         )
 
-        /*
-        // Não está funcionando assim:
-        if (editNome.text.toString().equals("")){
-            Toast.makeText(this, "Preencha o nome", Toast.LENGTH_LONG).show()
-        }
-        */
 
         //Funciona - achar o local do fluxo
         //if (!editNome.equals("null")) {
@@ -99,7 +100,7 @@ class Cadastro : AppCompatActivity() {
         //    Toast.makeText(this, "Favor preencher  o e-mail", Toast.LENGTH_LONG).show()
 
 
-        // parte nova do API
+
         val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/addUsuario.php?HTTP_NOME=${usuario.nome}&HTTP_CELULAR=${usuario.celular}&HTTP_SEXO=${usuario.sexo}&HTTP_EMAIL=${usuario.email}&HTTP_SENHA=${usuario.senha}"
 
             //val stringRequest = StringRequest(
@@ -114,11 +115,6 @@ class Cadastro : AppCompatActivity() {
             }
 
         )
-
-            //val requestQueue = Volley.newRequestQueue(this)
-            //requestQueue(stringRequest)  // PROBLEMA AQUI, RESOLVER
-        // fim da parte nova do API
-
 
         // Verificação dos campos digitados:
         // Nome nulo ou <3
@@ -144,54 +140,6 @@ class Cadastro : AppCompatActivity() {
             //acessar()
         }
 
-
-
-
-        /*
-        //como o if das senhas estava originalmente
-        if (editRepetirSenha.text.toString().equals(editSenha.text.toString())) {
-            Toast.makeText(this, "Registrado com sucesso", Toast.LENGTH_LONG).show()
-            //limpar()
-
-            // retirar daqui
-            val requestQueue = Volley.newRequestQueue(this)
-            requestQueue.add(stringRequest)     // seria isso?
-        }else{
-            Toast.makeText(this,"Senhas não coincidem", Toast.LENGTH_LONG).show()
-        }
-        */
-
-        /*
-        if (!editNome.equals("null")) {
-            Toast.makeText(this, "Favor preencher o nome", Toast.LENGTH_LONG).show()
-        } else if (editRepetirSenha.text.toString().equals(editSenha.text.toString())) {
-            Toast.makeText(this, "Registrado com sucesso", Toast.LENGTH_LONG).show()
-            //limpar()
-
-            val requestQueue = Volley.newRequestQueue(this)
-            requestQueue.add(stringRequest)     // seria isso?
-        }else{
-            Toast.makeText(this,"Senhas não coincidem", Toast.LENGTH_LONG).show()
-        }
-        */
-
-
-
-        // OUTRAS TENTATIVAS DE VERIFICAÇÃO:
-        /*
-        if (editNome == (null)) {
-            Toast.makeText(this, "Preencha o nome", Toast.LENGTH_LONG).show()
-        }
-        */
-
-        // Não identifica o campo em branco:
-        // if (!editNome.text.toString().equals("")) {
-
-        // Nao deixa passar mesmo com nome digitado:
-        //if (!editNome.equals("null"))
-        //v2: if (!editNome.text.toString().equals(null)) {
-
-
     } // fim do insert
 
 
@@ -205,6 +153,7 @@ class Cadastro : AppCompatActivity() {
         editNome.requestFocus()
     }
 
+
     fun editarPerfil(){
         val intent = Intent(this, Perfil::class.java)
         startActivity(intent)
@@ -213,28 +162,7 @@ class Cadastro : AppCompatActivity() {
 
 
 
-    /*
-    // Update via SQLite - não usa para API
-    fun update(){
-        usuario = Usuario(
-            editNome.text.toString(),
-            editCelular.text.toString(),
-            sexo.selectedItem.toString(),
-            editEmail.text.toString(),
-            editSenha.text.toString()
-        )
-        values = ContentValues()
-        values.put("nome",usuario.nome)
-        values.put("celular",usuario.celular)
-        values.put("sexo",usuario.sexo)
-        values.put("email",usuario.email)
-        values.put("senha",usuario.senha)
 
-        bd.update("tbappbsgi",values,"email", arrayOf(usuario.email))
-        Toast.makeText(this,"Atualizado com sucesso",Toast.LENGTH_LONG).show()
-
-    }
-    */
 
 
     /*
@@ -245,10 +173,6 @@ class Cadastro : AppCompatActivity() {
         startActivity(intent)
     }
     */
-
-
-
-
 
 
 
@@ -276,19 +200,8 @@ class Cadastro : AppCompatActivity() {
         botaoEditarPerfil.setOnClickListener(){
             editarPerfil()
         }
-
     }
     */
-
-    /*
-    // NÃO USA PARA API:
-    fun criarAbrirBD(){
-        bd = openOrCreateDatabase("bdappbsgi.db", MODE_PRIVATE, null)
-        bd.execSQL("CREATE TABLE IF NOT EXISTS tbappbsgi(nome varchar(60) NOT NULL, celular bigint(11), email varchar(60) NOT NULL, senha varchar(15) NOT NULL)")
-
-    }
-    */
-
 
 
 }

@@ -23,13 +23,14 @@ class Perfil : AppCompatActivity() {
     lateinit var editSenha: EditText
     lateinit var botaoAlterar: Button
 
-    //var id = Int
+    var id = Int
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil)
 
+        //listViewUsuario = findViewById(R.id.listViewUsuario)
         arrayUsuario = ArrayList<Usuario>()
 
         // Associar variáveis do Kotlin (acima:lateinit) com id do xml
@@ -41,10 +42,10 @@ class Perfil : AppCompatActivity() {
 
         botaoAlterar = findViewById(R.id.idBotaoAlterar)
         botaoAlterar.setOnClickListener(){
-            //update()
+            update()
         }
 
-        //listViewUsuario = findViewById(R.id.listViewUsuario)
+
         listViewUsuario.setOnItemClickListener { parent, view, position, id ->
             usuario = Usuario(
                 arrayUsuario[position].id,
@@ -63,12 +64,12 @@ class Perfil : AppCompatActivity() {
 
 
     fun carregarUsuario(){
-        //val id=1
-        //val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/getUsuario.php?HTTP_ID=${usuario.id}"
+        val id=0  // carregar o id da lista
+        val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/getUsuario.php?HTTP_ID=${usuario.id}"
 
         //val email = editEmail.text.toString()
         //val email = "rod@xmail.com"
-        val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/getUsuario.php?HTTP_EMAIL=${usuario.email}"
+        //val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/getUsuario.php?HTTP_EMAIL=${usuario.email}"
         // tem que ter uma sessão associada ao email ou id para resgatar os dados?
 
         //carregando o url no array de usuários (requisição)
@@ -81,7 +82,7 @@ class Perfil : AppCompatActivity() {
                 var jsonObject = jsonArray.getJSONObject(0)
 
                 usuario = Usuario(
-                    //jsonObject.getInt("idusuario"),
+                    jsonObject.getInt("idusuario"),
                     jsonObject.getString("nomeusuario"),
                     jsonObject.getInt("telefoneusuario"),
                     jsonObject.getString("sexo"),
@@ -95,7 +96,6 @@ class Perfil : AppCompatActivity() {
                     val adapterView = ArrayAdapter(this,android.R.layout.simple_list_item_1, arrayUsuario)
                     listViewUsuario.adapter = adapterView
 
-
                 Toast.makeText(this,"Exibindo dados do usuário",Toast.LENGTH_LONG).show()
             },
             Response.ErrorListener { error ->
@@ -104,7 +104,7 @@ class Perfil : AppCompatActivity() {
         )
 
         val requestQueue = Volley.newRequestQueue(this)
-        requestQueue.add(stringRequest)     // seria isso?
+        requestQueue.add(stringRequest)
     }
 
 
@@ -115,21 +115,30 @@ class Perfil : AppCompatActivity() {
 
     fun update(){
         val id=0
-        val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/updateUsuario.php?HTTP_ID=${usuario.id}"
+        usuario = Usuario(
+                editNome.text.toString(),
+                editCelular.text.toString().toInt(),
+                sexo.selectedItem.toString(),
+                editEmail.text.toString(),
+                editSenha.text.toString()
+        )
+        val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/updateUsuario.php?HTTP_ID=${usuario.id}&HTTP_NOME=${usuario.nome}&HTTP_EMAIL=${usuario.email}&HTTP_SENHA=${usuario.senha}"
 
         // tem que ter uma sessão associada ao email ou id para resgatar os dados
         val stringRequest = StringRequest(
             Request.Method.GET,
             url,
             Response.Listener { s->
+                /*
                 val jsonArray = JSONArray(s)
                 var jsonObject = jsonArray.getJSONObject(0)
                 val getIdJson = jsonObject.getString("idusuario")  // getInt?
                 val getEmailJson = jsonObject.getString("emailusuario")
 
                 // Como preencher os campos com os dados obtidos do Json/banco?
+                */
 
-                Toast.makeText(this,"msg",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"Atualizado",Toast.LENGTH_LONG).show()
             },
             Response.ErrorListener { error ->
                 Toast.makeText(this,error.message,Toast.LENGTH_LONG).show()
@@ -137,12 +146,33 @@ class Perfil : AppCompatActivity() {
         )
 
         val requestQueue = Volley.newRequestQueue(this)
-        requestQueue.add(stringRequest)     // seria isso?
-
-
-
-
+        requestQueue.add(stringRequest)
     }
+
+
+    // /*
+    fun delete(){
+        val id=0
+        usuario = Usuario(id)
+        val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/deleteUsuario.php?HTTP_ID=${usuario.id}"
+
+        // tem que ter uma sessão associada ao email ou id para resgatar os dados
+        val stringRequest = StringRequest(
+            Request.Method.GET,
+            url,
+            Response.Listener { s->
+
+                Toast.makeText(this,"Deletualizado",Toast.LENGTH_LONG).show()
+            },
+            Response.ErrorListener { error ->
+                Toast.makeText(this,error.message,Toast.LENGTH_LONG).show()
+            }
+        )
+
+        val requestQueue = Volley.newRequestQueue(this)
+        requestQueue.add(stringRequest)
+    }
+    // */
 
 
 

@@ -9,6 +9,7 @@
     <string name="voltar">VOLTAR</string>
     <string name="alterar">ALTERAR</string>
     <string name="enviar">ENVIAR</string>
+    <string name="limpar">LIMPAR</string>
     <string name="excluir">EXCLUIR</string>
     <string name="incluirEvento">INCLUIR EVENTO</string>
     <string name="informeEmail">Esqueceu a senha?</string>
