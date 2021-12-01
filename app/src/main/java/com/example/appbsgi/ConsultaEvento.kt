@@ -48,30 +48,31 @@ class ConsultaEvento : AppCompatActivity() {
 
         listViewEventos.setOnItemClickListener { parent, view, position, id ->
             var evento = Evento(
-                arrayEventos[position].idevento,
-                arrayEventos[position].idtipoevento,
-                arrayEventos[position].titulo,
-                arrayEventos[position].dataevento,
-                arrayEventos[position].cepevento,
-                arrayEventos[position].idcidadeevento,
-                arrayEventos[position].logradouroevento,
-                arrayEventos[position].numevento,
-                arrayEventos[position].complementoevento,
-                arrayEventos[position].bairroevento,
-                arrayEventos[position].desctipoEvento,
-                arrayEventos[position].nomeOrg,
-                arrayEventos[position].descCidade)
+                    arrayEventos[position].idevento,
+                    arrayEventos[position].idtipoevento,
+                    arrayEventos[position].titulo,
+                    arrayEventos[position].dataevento,
+                    arrayEventos[position].cepevento,
+                    arrayEventos[position].idcidadeevento,
+                    arrayEventos[position].logradouroevento,
+                    arrayEventos[position].numevento,
+                    arrayEventos[position].complementoevento,
+                    arrayEventos[position].bairroevento,
+                    arrayEventos[position].desctipoEvento,
+                    arrayEventos[position].nomeOrg,
+                    arrayEventos[position].descCidade)
         }
     }
 
+    // /*
     fun carregarEventosAPI() {
 
         var evento = Evento(
-            editTituloEvento.text.toString(),
-            editOrganizacao.text.toString(),
-            spinnerTipoEvento.selectedItem as String,
-            spinnerCidade.selectedItem as String,
-            dataEvento.year.toString() + '-' + (dataEvento.month + 1).toString() + '-' + dataEvento.dayOfMonth.toString()
+                editTituloEvento.text.toString(),
+                editOrganizacao.text.toString(),
+                spinnerTipoEvento.selectedItem as String,
+                spinnerCidade.selectedItem as String,
+                dataEvento.year.toString() + '-' + (dataEvento.month + 1).toString() + '-' + dataEvento.dayOfMonth.toString()
         )
         val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/getEvento.php?" +
                 "HTTP_TITULO=${evento.titulo}" +
@@ -79,37 +80,38 @@ class ConsultaEvento : AppCompatActivity() {
                 "&HTTP_DESCTIPOEVENTO=${evento.desctipoEvento}" +
                 "&HTTP_DESCCIDADE=${evento.descCidade}" +
                 "&HTTP_DATA=${evento.dataevento}"
+
         val stringRequest = StringRequest1(
-            Request.Method.GET,
-            url,
-            Response.Listener { s ->
-                val jsonArray = JSONArray(s)
-                for (i in 0..jsonArray.length() - 1) {
-                    var jsonObject = jsonArray.getJSONObject(i)
+                Request.Method.GET,
+                url,
+                Response.Listener { s ->
+                    val jsonArray = JSONArray(s)
+                    for (i in 0..jsonArray.length() - 1) {
+                        var jsonObject = jsonArray.getJSONObject(i)
 
-                    var evento = Evento(jsonObject.getInt("idevento"),
-                        jsonObject.getInt("idtipoevento"),
-                        jsonObject.getString("titulo"),
-                        jsonObject.getString("dataevento"),
-                        jsonObject.getInt("cepevento"),
-                        jsonObject.getInt("idcidadeevento"),
-                        jsonObject.getString("logradouroevento"),
-                        jsonObject.getInt("numevento"),
-                        jsonObject.getString("complementoevento"),
-                        jsonObject.getString("bairroevento"),
-                        jsonObject.getString("desctipoevento"),
-                        jsonObject.getString("nomeorg"),
-                        jsonObject.getString("desccidade")
-                    )
-                    arrayEventos.add(evento);
+                        var evento = Evento(jsonObject.getInt("idevento"),
+                                jsonObject.getInt("idtipoevento"),
+                                jsonObject.getString("titulo"),
+                                jsonObject.getString("dataevento"),
+                                jsonObject.getInt("cepevento"),
+                                jsonObject.getInt("idcidadeevento"),
+                                jsonObject.getString("logradouroevento"),
+                                jsonObject.getInt("numevento"),
+                                jsonObject.getString("complementoevento"),
+                                jsonObject.getString("bairroevento"),
+                                jsonObject.getString("desctipoevento"),
+                                jsonObject.getString("nomeorg"),
+                                jsonObject.getString("desccidade")
+                        )
+                        arrayEventos.add(evento);
+                    }
+
+                    val adapterView = ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayEventos)
+                    listViewEventos.adapter = adapterView
+                },
+                Response.ErrorListener { error ->
+                    Toast.makeText(this, error.message, Toast.LENGTH_LONG).show()
                 }
-
-                val adapterView = ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayEventos)
-                listViewEventos.adapter = adapterView
-            },
-            Response.ErrorListener { error ->
-                Toast.makeText(this, error.message, Toast.LENGTH_LONG).show()
-            }
 
         )
         val requestQueue = Volley.newRequestQueue(this)
@@ -117,9 +119,7 @@ class ConsultaEvento : AppCompatActivity() {
     }
 
     fun incluirEvento() {
-        Toast.makeText(this,"Bem-vindo(a)", Toast.LENGTH_LONG).show()
         val intent = Intent(this, CadastroAtividade::class.java)
         startActivity(intent)
     }
-
 }
