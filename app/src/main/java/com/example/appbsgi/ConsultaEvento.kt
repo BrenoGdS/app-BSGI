@@ -1,5 +1,6 @@
 package com.example.appbsgi
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
@@ -18,9 +19,9 @@ class ConsultaEvento : AppCompatActivity() {
     lateinit var spinnerCidade: Spinner
     lateinit var dataEvento: DatePicker
     lateinit var buttonPesquisar: Button
+    lateinit var buttonIncluirEvento: Button
     lateinit var listViewEventos: ListView
     lateinit var arrayEventos: ArrayList<Evento>
-
 
 
 
@@ -35,10 +36,14 @@ class ConsultaEvento : AppCompatActivity() {
         spinnerCidade = findViewById(R.id.spinnerCidade)
         dataEvento = findViewById(R.id.dataEvento)
         buttonPesquisar = findViewById(R.id.buttonPesquisar)
+        buttonIncluirEvento = findViewById(R.id.buttonIncluirEvento)
         listViewEventos = findViewById(R.id.listViewEventos)
 
         buttonPesquisar.setOnClickListener() {
             carregarEventosAPI()
+        }
+        buttonIncluirEvento.setOnClickListener() {
+            incluirEvento()
         }
 
         listViewEventos.setOnItemClickListener { parent, view, position, id ->
@@ -66,9 +71,9 @@ class ConsultaEvento : AppCompatActivity() {
             editOrganizacao.text.toString(),
             spinnerTipoEvento.selectedItem as String,
             spinnerCidade.selectedItem as String,
-            dataEvento.year.toString() + '-' + dataEvento.month.toString() + '-' + dataEvento.dayOfMonth.toString()
+            dataEvento.year.toString() + '-' + (dataEvento.month + 1).toString() + '-' + dataEvento.dayOfMonth.toString()
         )
-        val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/getAllEventos.php?" +
+        val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/getEvento.php?" +
                 "HTTP_TITULO=${evento.titulo}" +
                 "&HTTP_NOMEORG=${evento.nomeOrg}" +
                 "&HTTP_DESCTIPOEVENTO=${evento.desctipoEvento}" +
@@ -92,9 +97,9 @@ class ConsultaEvento : AppCompatActivity() {
                         jsonObject.getInt("numevento"),
                         jsonObject.getString("complementoevento"),
                         jsonObject.getString("bairroevento"),
-                        jsonObject.getString("desctipoEvento"),
-                        jsonObject.getString("nomeOrg"),
-                        jsonObject.getString("descCidade")
+                        jsonObject.getString("desctipoevento"),
+                        jsonObject.getString("nomeorg"),
+                        jsonObject.getString("desccidade")
                     )
                     arrayEventos.add(evento);
                 }
@@ -110,4 +115,11 @@ class ConsultaEvento : AppCompatActivity() {
         val requestQueue = Volley.newRequestQueue(this)
         requestQueue.add(stringRequest)
     }
+
+    fun incluirEvento() {
+        Toast.makeText(this,"Bem-vindo(a)", Toast.LENGTH_LONG).show()
+        val intent = Intent(this, CadastroAtividade::class.java)
+        startActivity(intent)
+    }
+
 }

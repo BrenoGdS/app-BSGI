@@ -123,6 +123,13 @@
                 android:calendarViewShown="false"
                 android:datePickerMode="spinner"/>
 
+            <TimePicker
+                android:id="@+id/horaEvento"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"/>
+
 
             <EditText
                 android:id="@+id/editCep"
@@ -131,29 +138,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:hint="CEP"
-                android:inputType="text" />
+                android:inputType="number" />
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="141dp"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="54dp"
-                    android:text="Cidade:" />
-
-                <Spinner
-                    android:id="@+id/spinnerCidade"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:entries="@array/cidade"
-                    android:paddingLeft="7dp" />
-
-            </LinearLayout>
 
             <!--
             <RadioGroup
@@ -191,6 +177,27 @@
             -->
 
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="141dp"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="54dp"
+                    android:text="Cidade:" />
+
+                <Spinner
+                    android:id="@+id/spinnerCidade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:entries="@array/cidade"
+                    android:paddingLeft="7dp" />
+
+            </LinearLayout>
+
             <EditText
                 android:id="@+id/editEndereco"
                 style="@style/Input"
@@ -218,13 +225,22 @@
                 android:hint="Complemento"
                 android:inputType="text" />
 
+            <EditText
+                android:id="@+id/editBairro"
+                style="@style/Input"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Bairro"
+                android:inputType="text" />
+
             <Button
                 android:id="@+id/botaoSalvarAtividade"
                 style="@style/estiloBotao"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/voltar" />
+                android:text="@string/salvar" />
             <!--android:onClick="botaoAcessar" -->
             <!--android:id="@+id/idBotaoAcessar" -->
             <!--android:text="CADASTRAR" -->

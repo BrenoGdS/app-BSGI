@@ -82,8 +82,16 @@
                 android:id="@+id/listViewEventos"
                 style="@style/Input"
                 android:layout_width="match_parent"
-                android:layout_height="100dp" />
+                android:layout_height="405dp" >
+            </ListView>
 
+
+            <Button
+                android:id="@+id/buttonIncluirEvento"
+                style="@style/estiloBotao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/incluirEvento" />
 
 
 

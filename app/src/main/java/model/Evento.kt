@@ -55,7 +55,7 @@ class Evento {
     }
 
     override fun toString(): String {
-        return "Evento(idevento=$idevento,  idtipoevento=$idtipoevento, titulo='$titulo', dataevento='$dataevento', cepevento=$cepevento, idcidadeevento=$idcidadeevento, logradouroevento='$logradouroevento', numevento=$numevento, complementoevento='$complementoevento', bairroevento='$bairroevento', desctipoEvento='$desctipoEvento', nomeOrg='$nomeOrg', descCidade='$descCidade')"
+        return "$desctipoEvento - $titulo, $dataevento | end.: $logradouroevento, $numevento, $complementoevento, $bairroevento, $descCidade | ($nomeOrg)"
     }
 
 

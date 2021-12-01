@@ -10,6 +10,7 @@
     <string name="alterar">ALTERAR</string>
     <string name="enviar">ENVIAR</string>
     <string name="excluir">EXCLUIR</string>
+    <string name="incluirEvento">INCLUIR EVENTO</string>
     <string name="informeEmail">Esqueceu a senha?</string>
     <string name="titPrincipal">Página Principal</string>
     <!--<string name="informeEmail">Por favor, insira seu e-mail:</string> -->
