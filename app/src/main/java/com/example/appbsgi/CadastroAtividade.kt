@@ -43,15 +43,17 @@ class CadastroAtividade : AppCompatActivity() {
         editTitulo = findViewById(R.id.editTitulo)
         spinnerTipoEvento = findViewById(R.id.spinnerTipoEvento)
         dataEvento = findViewById(R.id.dataEvento)
+        horaEvento = findViewById(R.id.horaEvento)
+        horaEvento.setIs24HourView(true) // ajusta o TimePicker para 24 horas
         editCep = findViewById(R.id.editCep)
         spinnerCidade = findViewById(R.id.spinnerCidade)
         editEndereco = findViewById(R.id.editEndereco)
         editNumeroEndereco = findViewById(R.id.editNumeroEndereco)
         editComplemento = findViewById(R.id.editComplemento)
+        editBairro = findViewById(R.id.editBairro)
         botaoSalvarAtividade = findViewById(R.id.botaoSalvarAtividade)
         botaoVoltar = findViewById(R.id.botaoVoltar)
-        editBairro = findViewById(R.id.editBairro)
-        horaEvento = findViewById(R.id.horaEvento)
+
 
         botaoSalvarAtividade.setOnClickListener(){
             insert()
