@@ -59,7 +59,7 @@ class CadastroAtividade : AppCompatActivity() {
             insert()
         }
         botaoVoltar.setOnClickListener(){
-            //voltar()
+            voltar()
         }
 
     }
@@ -156,6 +156,12 @@ class CadastroAtividade : AppCompatActivity() {
         }
 
 
+    }
+
+
+    fun voltar(){
+        val intent = Intent(this, ConsultaEvento::class.java)
+        startActivity(intent)
     }
 
 }

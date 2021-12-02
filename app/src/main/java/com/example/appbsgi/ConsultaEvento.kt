@@ -21,7 +21,9 @@ class ConsultaEvento : AppCompatActivity() {
     lateinit var buttonPesquisar: Button
     lateinit var buttonIncluirEvento: Button
     lateinit var listViewEventos: ListView
+    lateinit var evento: Evento
     lateinit var arrayEventos: ArrayList<Evento>
+
 
 
 
@@ -122,4 +124,35 @@ class ConsultaEvento : AppCompatActivity() {
         val intent = Intent(this, CadastroAtividade::class.java)
         startActivity(intent)
     }
+
+    // Função para fazer update ao clicar em um item da lista
+    // Chamar uma tela igual ao de CadastroAtividade
+    fun editarEvento(){
+
+        // VERIFICAR OS CAMPOS DA URL
+        //val url = "https://apiaulamobilerodrigo.000webhostapp.com/apiPI/updateEVENTO.php?HTTP_TIME=${time.time}&HTTP_PAIS=${time.pais}&HTTP_TECNICO=${time.tecnico}&HTTP_ID=${time.id}"
+        val url = ""
+        //carregando o url no array de times (requisição)
+        //4 parâmetros
+        val stringRequest = com.android.volley.toolbox.StringRequest(
+                Request.Method.GET,
+                url,
+                Response.Listener { s ->
+                    Toast.makeText(this, "Atualizado com sucesso $url", Toast.LENGTH_LONG).show()
+                    carregarEventosAPI()
+                    //limpar()
+                },
+                Response.ErrorListener { error ->
+                    Toast.makeText(this, error.message, Toast.LENGTH_LONG).show()
+                }
+        )
+        val requestQueue = Volley.newRequestQueue(this)
+        requestQueue.add(stringRequest)
+        //carregarEventosAPI()
+
+    }
+
+
+
+
 }
