@@ -66,22 +66,30 @@ class CadastroAtividade : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun insert() {
+        var cep:Int = 0
+        if (!editCep.text.toString().equals("")) {
+            cep=Integer.valueOf(editCep.text.toString())
+        }
+        var num:Int = 0
+        if(!editNumeroEndereco.text.toString().equals("")){
+            num=Integer.valueOf(editNumeroEndereco.text.toString())
+        }
         var evento = Evento(
-            0,
-            0,
-            editTitulo.text.toString(),
-            dataEvento.year.toString() + "-" + (dataEvento.month + 1).toString() + "-" + dataEvento.dayOfMonth.toString() + " " + horaEvento.hour.toString() + ":" + horaEvento.minute.toString() + ":00",
-            Integer.valueOf(editCep.text.toString()), //
-            0,
-            editEndereco.text.toString(),
-            Integer.valueOf(editNumeroEndereco.text.toString()),
-            editComplemento.text.toString(),
-            editBairro.text.toString(),
-            spinnerTipoEvento.selectedItem as String,
-            spinnerOrganizacao.selectedItem as String,
-            spinnerCidade.selectedItem as String
+                0,
+                0,
+                editTitulo.text.toString(),
+                dataEvento.year.toString() + "-" + (dataEvento.month + 1).toString() + "-" + dataEvento.dayOfMonth.toString() + " " + horaEvento.hour.toString() + ":" + horaEvento.minute.toString() + ":00",
+                cep,
+                0,
+                editEndereco.text.toString(),
+                num,
+                editComplemento.text.toString(),
+                editBairro.text.toString(),
+                spinnerTipoEvento.selectedItem as String,
+                spinnerOrganizacao.selectedItem as String,
+                spinnerCidade.selectedItem as String
         )
-        // parte nova do API
+
         val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/addEvento.php?" +
                 "HTTP_TITULO=${evento.titulo}&" +
                 "HTTP_BAIRROEVENTO=${evento.bairroevento}&" +
@@ -94,62 +102,39 @@ class CadastroAtividade : AppCompatActivity() {
                 "HTTP_LOGRADOUROEVENTO=${evento.logradouroevento}&" +
                 "HTTP_NUMEVENTO=${evento.numevento}"
 
-        //val stringRequest = StringRequest(
+
         val stringRequest = StringRequest(
-            Request.Method.GET,
-            url,
-            Response.Listener { s->
-                Toast.makeText(this, "Inserido com sucesso $url", Toast.LENGTH_LONG).show()
-            },
-            Response.ErrorListener { error->
-                Toast.makeText(this,error.message,Toast.LENGTH_LONG).show()
-            }
+                Request.Method.GET,
+                url,
+                Response.Listener { s ->
+                    Toast.makeText(this, "Inserido com sucesso $url", Toast.LENGTH_LONG).show()
+                },
+                Response.ErrorListener { error ->
+                    Toast.makeText(this, error.message, Toast.LENGTH_LONG).show()
+                }
         )
 
-        if(evento.cepevento.toString().equals("")){
+        // Validação dos campos
+        if (evento.titulo.equals("")) {
             editTitulo.requestFocus()
-            Toast.makeText(this, "Favor preencher o titulo", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Favor preencher o título", Toast.LENGTH_LONG).show()
         }
-        else if(evento.numevento.toString().equals("")){
-            editTitulo.requestFocus()
-            Toast.makeText(this, "Favor preencher o titulo", Toast.LENGTH_LONG).show()
-        }
-        else if(evento.titulo.equals("")){
-            editTitulo.requestFocus()
-            Toast.makeText(this, "Favor preencher o titulo", Toast.LENGTH_LONG).show()
-        }
-        else if(evento.titulo.equals("")){
-            editTitulo.requestFocus()
-            Toast.makeText(this, "Favor preencher o titulo", Toast.LENGTH_LONG).show()
-        }
-        else if(evento.dataevento.equals("")){
-            dataEvento.requestFocus()
-            Toast.makeText(this, "Favor preencher a data", Toast.LENGTH_LONG).show()
+        else if(evento.cepevento.equals(0)){
+            editCep.requestFocus()
+            Toast.makeText(this, "Favor preencher o CEP", Toast.LENGTH_LONG).show()
         }
         else if(evento.logradouroevento.equals("")){
             editEndereco.requestFocus()
             Toast.makeText(this, "Favor preencher o logradouro", Toast.LENGTH_LONG).show()
         }
-        else if(evento.complementoevento.equals("")){
-            editComplemento.requestFocus()
-            Toast.makeText(this, "Favor preencher o complemento", Toast.LENGTH_LONG).show()
+        else if(evento.numevento.equals(0)){
+            editNumeroEndereco.requestFocus()
+            Toast.makeText(this, "Favor preencher o número do logradouro", Toast.LENGTH_LONG).show()
         }
         else if(evento.bairroevento.equals("")){
             editBairro.requestFocus()
             Toast.makeText(this, "Favor preencher o bairro", Toast.LENGTH_LONG).show()
-        }
-        else if(evento.desctipoEvento.equals("")){
-            spinnerTipoEvento.requestFocus()
-            Toast.makeText(this, "Favor preencher o tipo de atividade", Toast.LENGTH_LONG).show()
-        }
-        else if(evento.nomeOrg.equals("")){
-            spinnerOrganizacao.requestFocus()
-            Toast.makeText(this, "Favor preencher a organização", Toast.LENGTH_LONG).show()
-        }
-        else if(evento.descCidade.equals("")){
-            spinnerCidade.requestFocus()
-            Toast.makeText(this, "Favor preencher a cidade", Toast.LENGTH_LONG).show()
-        } else{
+        }else{
             Toast.makeText(this, "Registrado com sucesso", Toast.LENGTH_LONG).show()
             val requestQueue = Volley.newRequestQueue(this)
             requestQueue.add(stringRequest)

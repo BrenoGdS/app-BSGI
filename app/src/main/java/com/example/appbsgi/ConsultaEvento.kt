@@ -66,7 +66,7 @@ class ConsultaEvento : AppCompatActivity() {
         }
     }
 
-    // /*
+
     fun carregarEventosAPI() {
 
         var evento = Evento(
@@ -125,13 +125,17 @@ class ConsultaEvento : AppCompatActivity() {
         startActivity(intent)
     }
 
+
+
+
     // Função para fazer update ao clicar em um item da lista
     // Chamar uma tela igual ao de CadastroAtividade
+    /*
     fun editarEvento(){
 
         // VERIFICAR OS CAMPOS DA URL
-        //val url = "https://apiaulamobilerodrigo.000webhostapp.com/apiPI/updateEVENTO.php?HTTP_TIME=${time.time}&HTTP_PAIS=${time.pais}&HTTP_TECNICO=${time.tecnico}&HTTP_ID=${time.id}"
-        val url = ""
+        val url = "https://apiaulamobilerodrigo.000webhostapp.com/apiPI/updateEVENTO.php?HTTP_TIME=${time.time}&HTTP_PAIS=${time.pais}&HTTP_TECNICO=${time.tecnico}&HTTP_ID=${time.id}"
+        //val url = ""
         //carregando o url no array de times (requisição)
         //4 parâmetros
         val stringRequest = com.android.volley.toolbox.StringRequest(
@@ -150,7 +154,7 @@ class ConsultaEvento : AppCompatActivity() {
         requestQueue.add(stringRequest)
         //carregarEventosAPI()
 
-    }
+    }*/
 
 
 

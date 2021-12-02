@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/verticalbackground"
-    tools:context=".CadastroAtividade">
+    tools:context=".EditarEvento">
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,24 +27,7 @@
                 android:layout_marginTop="05dp"
                 android:layout_marginBottom="20dp"
                 android:src="@drawable/bsgilogo3d" />
-            <!-- Logo grande centralizada
-            <ImageView
-                android:id="@+id/idLogo"
-                android:layout_width="300dp"
-                android:layout_height="200dp"
-                android:src="@drawable/bsgilogo3c"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"/>
-            -->
-            <!-- android:layout_marginTop="40dp"-->
 
-            <!--
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="54dp"
-                android:text="Novo cadastro"/>
-            -->
 
             <TextView
                 android:id="@+id/textView"
@@ -101,26 +84,6 @@
                     android:paddingLeft="7dp" />
             </LinearLayout>
 
-            <!--
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="54dp"
-                    android:text="Organização:" />
-                <Spinner
-                    android:id="@+id/spinnerOrganizacao"
-                    android:layout_width="229dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:entries="@array/organizacao"
-                    android:paddingLeft="7dp" />
-            </LinearLayout>
-            -->
-
 
             <DatePicker
                 android:id="@+id/dataEvento"
@@ -135,8 +98,7 @@
                 android:layout_gravity="center"
                 android:calendarViewShown="false"
                 android:timePickerMode="spinner"/>
-            <!--android:timePickerMode="clock" -->
-            <!--android:backgroundTint="@color/white" -->
+
 
 
             <EditText
@@ -224,5 +186,7 @@
 
         </LinearLayout>
     </ScrollView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
