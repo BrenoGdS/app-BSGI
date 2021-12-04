@@ -198,25 +198,7 @@ class ConsultaEvento : AppCompatActivity() {
             editBairro.setText(evento.bairroevento)
 
 
-
-            // Visibilidade:
-            buttonPesquisar.visibility = Button.GONE
-            buttonAlterar.visibility = Button.VISIBLE
-            buttonLimpar.visibility  = Button.VISIBLE
-            buttonExcluir.visibility = Button.VISIBLE
-            // Novo 1203 10:43h
-            tituloEditarEventos.visibility=Button.VISIBLE
-            tituloConsultarEventos.visibility=Button.GONE
-            editCep.visibility = EditText.VISIBLE
-            editEndereco.visibility = EditText.VISIBLE
-            editNumeroEndereco.visibility=EditText.VISIBLE
-            editComplemento.visibility = EditText.VISIBLE
-            editBairro.visibility = EditText.VISIBLE
-            //Novo 1203 11:42h
-            horaEvento.visibility = TimePicker.VISIBLE
-            tituloListEventos.visibility = TextView.GONE
-            listViewEventos.visibility = ListView.GONE
-            buttonIncluirEvento.visibility = Button.GONE
+            ativarDesativarLayoutEdicao(true);
 
 
 
@@ -299,6 +281,47 @@ class ConsultaEvento : AppCompatActivity() {
         editTituloEvento.requestFocus()
     }
 
+    fun ativarDesativarLayoutEdicao(isModoEdicao: Boolean){
+        if(isModoEdicao){
+            buttonPesquisar.visibility = Button.GONE
+            buttonAlterar.visibility = Button.VISIBLE
+            buttonLimpar.visibility  = Button.VISIBLE
+            buttonExcluir.visibility = Button.VISIBLE
+            // Novo 1203 10:43h
+            tituloEditarEventos.visibility=Button.VISIBLE
+            tituloConsultarEventos.visibility=Button.GONE
+            editCep.visibility = EditText.VISIBLE
+            editEndereco.visibility = EditText.VISIBLE
+            editNumeroEndereco.visibility=EditText.VISIBLE
+            editComplemento.visibility = EditText.VISIBLE
+            editBairro.visibility = EditText.VISIBLE
+            //Novo 1203 11:42h
+            horaEvento.visibility = TimePicker.VISIBLE
+            tituloListEventos.visibility = TextView.GONE
+            listViewEventos.visibility = ListView.GONE
+            buttonIncluirEvento.visibility = Button.GONE
+        }else{
+
+            buttonPesquisar.visibility = Button.VISIBLE
+            buttonAlterar.visibility = Button.GONE
+            buttonLimpar.visibility  = Button.GONE
+            buttonExcluir.visibility = Button.GONE
+            // Novo 1203 10:43h
+            tituloEditarEventos.visibility=Button.GONE
+            tituloConsultarEventos.visibility=Button.VISIBLE
+            editCep.visibility = EditText.GONE
+            editEndereco.visibility = EditText.GONE
+            editNumeroEndereco.visibility=EditText.GONE
+            editComplemento.visibility = EditText.GONE
+            editBairro.visibility = EditText.GONE
+            //Novo 1203 11:42h
+            horaEvento.visibility = TimePicker.GONE
+            tituloListEventos.visibility = TextView.VISIBLE
+            listViewEventos.visibility = ListView.VISIBLE
+            buttonIncluirEvento.visibility = Button.VISIBLE
+        }
+    }
+
 
     fun apagar(){
         // Precisa dessas linhas para usar o construtor delete()
@@ -324,9 +347,10 @@ class ConsultaEvento : AppCompatActivity() {
 
         val requestQueue = Volley.newRequestQueue(this)
         requestQueue.add(stringRequest)
-        //carregarEventosAPI()
-        val intent = Intent(this, ConsultaEvento::class.java)
-        startActivity(intent)
+        arrayEventos.clear()
+        listViewEventos.setAdapter(null);
+        ativarDesativarLayoutEdicao(false)
+        carregarEventosAPI()
     }
 
 
@@ -348,7 +372,7 @@ class ConsultaEvento : AppCompatActivity() {
     fun editarEvento(){
 
         // VERIFICAR OS CAMPOS DA URL
-        val url = "https://apiaulamobilerodrigo.000webhostapp.com/apiPI/updateEVENTO.php?" +
+        val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/updateEVENTO.php?" +
                 "HTTP_TITULO=${evento.titulo}" +
                 "&HTTP_CEPEVENTO=${evento.cepevento}" +
                 "&HTTP_LOGRADOUROEVENTO=${evento.logradouroevento}" +
@@ -372,8 +396,11 @@ class ConsultaEvento : AppCompatActivity() {
         )
         val requestQueue = Volley.newRequestQueue(this)
         requestQueue.add(stringRequest)
-        //carregarEventosAPI()
 
+        arrayEventos.clear()
+        listViewEventos.setAdapter(null)
+        ativarDesativarLayoutEdicao(false)
+        carregarEventosAPI()
     }
 
 
