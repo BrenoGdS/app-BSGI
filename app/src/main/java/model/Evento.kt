@@ -54,8 +54,37 @@ class Evento {
         this.dataevento = dataevento
     }
 
+    //construtor delete
+    constructor(idevento: Int){
+        this.idevento = idevento
+    }
+
+    //construtor teste
+    constructor(titulo: String,nomeOrg: String,desctipoEvento: String,logradouroevento: String,complementoevento: String,bairroevento: String,){
+        this.titulo = titulo
+        this.nomeOrg = nomeOrg
+        this.desctipoEvento = desctipoEvento
+        this.logradouroevento = logradouroevento
+        //this.numevento = numevento
+        this.complementoevento = complementoevento
+        this.bairroevento = bairroevento
+    }
+
+    //construtor teste2
+    constructor(titulo: String,nomeOrg: String,desctipoEvento: String, cepevento: Int,logradouroevento: String,complementoevento: String,bairroevento: String,){
+        this.titulo = titulo
+        this.nomeOrg = nomeOrg
+        this.desctipoEvento = desctipoEvento
+        this.cepevento = cepevento
+        this.logradouroevento = logradouroevento
+        //this.numevento = numevento
+        this.complementoevento = complementoevento
+        this.bairroevento = bairroevento
+    }
+
+
     override fun toString(): String {
-        return "$desctipoEvento - $titulo, $dataevento | end.: $logradouroevento, $numevento, $complementoevento, $bairroevento, $descCidade | ($nomeOrg)"
+        return "$titulo - $desctipoEvento ($nomeOrg) $dataevento | End.: $logradouroevento, $numevento, $complementoevento, $bairroevento - $cepevento | $descCidade"
     }
 
 

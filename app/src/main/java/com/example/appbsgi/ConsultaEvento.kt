@@ -11,35 +11,123 @@ import model.Evento
 import org.json.JSONArray
 import java.time.LocalDateTime
 import com.android.volley.toolbox.StringRequest as StringRequest1
+import java.util.ArrayList
+//import java.net.URL
+import org.json.JSONObject
+import org.json.JSONException
+
+import android.widget.ArrayAdapter
+import androidx.core.view.get
+
 
 class ConsultaEvento : AppCompatActivity() {
+    lateinit var listViewEventos: ListView
+    lateinit var arrayEventos: ArrayList<Evento> //variável usada para guardar o conteúdo da URL(Json) da API
+
     lateinit var editTituloEvento: EditText
     lateinit var editOrganizacao: EditText
     lateinit var spinnerTipoEvento: Spinner
     lateinit var spinnerCidade: Spinner
     lateinit var dataEvento: DatePicker
+    lateinit var horaEvento: TimePicker
+
+    //Novo 1203 10:43h
+    lateinit var editCep: EditText
+    lateinit var editEndereco: EditText
+    lateinit var editNumeroEndereco: EditText
+    lateinit var editComplemento: EditText
+    lateinit var editBairro: EditText
+    lateinit var tituloListEventos: TextView
+    lateinit var tituloEditarEventos: Button
+    lateinit var tituloConsultarEventos:Button
+
+    //Novo 1203 13:36
+    //lateinit var tipoEvento: Spinner
+
+
     lateinit var buttonPesquisar: Button
+    lateinit var buttonAlterar: Button // oculto
+    lateinit var buttonLimpar: Button  // oculto
+    lateinit var buttonExcluir: Button // oculto
     lateinit var buttonIncluirEvento: Button
-    lateinit var listViewEventos: ListView
+
     lateinit var evento: Evento
-    lateinit var arrayEventos: ArrayList<Evento>
-
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_consulta_evento)
+
         arrayEventos = ArrayList<Evento>()
+
 
         editTituloEvento = findViewById(R.id.editTituloEvento)
         editOrganizacao = findViewById(R.id.editOrganizacao)
         spinnerTipoEvento = findViewById(R.id.spinnerTipoEvento)
         spinnerCidade = findViewById(R.id.spinnerCidade)
         dataEvento = findViewById(R.id.dataEvento)
+        horaEvento = findViewById(R.id.horaEvento)
+        horaEvento.setIs24HourView(true) // ajusta o TimePicker para 24 horas
+        //Novo 1203 13:36
+        //tipoEvento = findViewById(R.id.spinnerTipoEvento)
+        spinnerTipoEvento = findViewById(R.id.spinnerTipoEvento)
+
         buttonPesquisar = findViewById(R.id.buttonPesquisar)
         buttonIncluirEvento = findViewById(R.id.buttonIncluirEvento)
-        listViewEventos = findViewById(R.id.listViewEventos)
+        // //listViewEventos = findViewById(R.id.listViewEventos)
+
+        //Novo 1203 10:43h
+        editCep = findViewById(R.id.editCep)
+        editEndereco = findViewById(R.id.editEndereco)
+        editNumeroEndereco=findViewById(R.id.editNumeroEndereco)
+        editComplemento = findViewById(R.id.editComplemento)
+        editBairro   = findViewById(R.id.editBairro)
+        tituloListEventos = findViewById(R.id.tituloListEventos)
+        tituloEditarEventos=findViewById(R.id.tituloEditarEventos)
+        tituloConsultarEventos=findViewById(R.id.tituloConsultarEventos)
+
+
+            //Testando novo objeto:     // sem erros
+            /*
+            evento = Evento(
+                editTituloEvento.text.toString(),
+                editOrganizacao.text.toString(),
+                spinnerTipoEvento.selectedItem as String,
+                //editCep.Int.toString(),   // está passando mesmo assim (verif)
+                editEndereco.text.toString(),
+                editComplemento.text.toString(),
+                editBairro.text.toString()
+            )
+        */
+
+
+            /*
+            // sem erros
+            evento = Evento(
+                editTituloEvento.text.toString(),
+                editOrganizacao.text.toString(),
+                spinnerTipoEvento.selectedItem as String,
+                spinnerCidade.selectedItem as String,
+                dataEvento.isSelected as String
+            )*/
+
+
+            /*
+            arrayEventos[position].idevento,
+
+            arrayEventos[position].dataevento,
+            arrayEventos[position].cepevento,
+            arrayEventos[position].idcidadeevento,
+            arrayEventos[position].logradouroevento,
+            arrayEventos[position].numevento,
+            arrayEventos[position].complementoevento,
+            arrayEventos[position].bairroevento,
+            arrayEventos[position].desctipoEvento)
+            */
+
+
+
+            //listViewEventos.selectedItem
 
         buttonPesquisar.setOnClickListener() {
             carregarEventosAPI()
@@ -48,8 +136,36 @@ class ConsultaEvento : AppCompatActivity() {
             incluirEvento()
         }
 
+        buttonAlterar =findViewById(R.id.buttonAlterar)
+        buttonAlterar.setOnClickListener{
+            //update()
+        }
+        buttonLimpar =findViewById(R.id.buttonLimpar)
+        buttonLimpar.setOnClickListener{
+            limpar()
+        }
+        buttonExcluir=findViewById(R.id.buttonExcluir)
+        buttonExcluir.setOnClickListener {
+            apagar()
+        }
+
+
+
+        // TRECHO P/ TENTAR POPULAR OS SPINNERS
+        /*
+        */
+
+
+
+        // FIM DO TRECHO DE TESTE
+
+
+
+
+
+        listViewEventos = findViewById(R.id.listViewEventos)
         listViewEventos.setOnItemClickListener { parent, view, position, id ->
-            var evento = Evento(
+            evento = Evento(
                     arrayEventos[position].idevento,
                     arrayEventos[position].idtipoevento,
                     arrayEventos[position].titulo,
@@ -63,12 +179,56 @@ class ConsultaEvento : AppCompatActivity() {
                     arrayEventos[position].desctipoEvento,
                     arrayEventos[position].nomeOrg,
                     arrayEventos[position].descCidade)
-        }
-    }
+
+            Toast.makeText(this,"Evento: "+evento,Toast.LENGTH_LONG).show()
+
+
+            // Passando os dados para os campos respectivos:
+
+            editCep.setText(evento.cepevento.toString())
+            editTituloEvento.setText(evento.titulo)
+            //1203
+            //spinnerTipoEvento.selectedItem(evento.desctipoEvento)
+            //spinnerTipoEvento.isSelected(evento.desctipoEvento)
+
+            editOrganizacao.setText(evento.nomeOrg)
+            editEndereco.setText(evento.logradouroevento)
+            editNumeroEndereco.setText(evento.numevento.toString())
+            editComplemento.setText(evento.complementoevento)
+            editBairro.setText(evento.bairroevento)
+
+
+
+            // Visibilidade:
+            buttonPesquisar.visibility = Button.GONE
+            buttonAlterar.visibility = Button.VISIBLE
+            buttonLimpar.visibility  = Button.VISIBLE
+            buttonExcluir.visibility = Button.VISIBLE
+            // Novo 1203 10:43h
+            tituloEditarEventos.visibility=Button.VISIBLE
+            tituloConsultarEventos.visibility=Button.GONE
+            editCep.visibility = EditText.VISIBLE
+            editEndereco.visibility = EditText.VISIBLE
+            editNumeroEndereco.visibility=EditText.VISIBLE
+            editComplemento.visibility = EditText.VISIBLE
+            editBairro.visibility = EditText.VISIBLE
+            //Novo 1203 11:42h
+            horaEvento.visibility = TimePicker.VISIBLE
+            tituloListEventos.visibility = TextView.GONE
+            listViewEventos.visibility = ListView.GONE
+            buttonIncluirEvento.visibility = Button.GONE
+
+
+
+            //carregarEventosAPI()
+
+        } //fim listViewEventos
+    } // fim onCreate
 
 
     fun carregarEventosAPI() {
-
+        tituloListEventos.visibility = TextView.VISIBLE
+        listViewEventos.visibility = ListView.VISIBLE
         var evento = Evento(
                 editTituloEvento.text.toString(),
                 editOrganizacao.text.toString(),
@@ -105,7 +265,7 @@ class ConsultaEvento : AppCompatActivity() {
                                 jsonObject.getString("nomeorg"),
                                 jsonObject.getString("desccidade")
                         )
-                        arrayEventos.add(evento);
+                        arrayEventos.add(evento)
                     }
 
                     val adapterView = ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayEventos)
@@ -118,6 +278,9 @@ class ConsultaEvento : AppCompatActivity() {
         )
         val requestQueue = Volley.newRequestQueue(this)
         requestQueue.add(stringRequest)
+        //tituloListEventos.requestFocus()
+        //listViewEventos.setSelection(0)
+        listViewEventos.setSelection(1)
     }
 
     fun incluirEvento() {
@@ -125,8 +288,56 @@ class ConsultaEvento : AppCompatActivity() {
         startActivity(intent)
     }
 
+    fun limpar(){
+        editTituloEvento.setText(null)
+        editOrganizacao.setText(null)
+        editCep.setText(null)
+        editEndereco.setText(null)
+        editNumeroEndereco.setText(null)
+        editComplemento.setText(null)
+        editBairro.setText(null)
+        editTituloEvento.requestFocus()
+    }
 
 
+    fun apagar(){
+        //val idevento=0
+        //evento = Evento()
+        val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/deleteEvento.php?HTTP_ID=${evento.idevento}"
+        //carregando o url no array de eventos (requisição)
+        //4 parâmetros
+        val stringRequest = StringRequest1(
+            Request.Method.GET,
+            url,
+            Response.Listener { s ->
+                Toast.makeText(this, "Deletado com sucesso $url", Toast.LENGTH_LONG).show()
+                //carregarEventosAPI()
+                limpar()
+            },
+            Response.ErrorListener { error ->
+                Toast.makeText(this, error.message, Toast.LENGTH_LONG).show()
+            }
+        )
+
+        val requestQueue = Volley.newRequestQueue(this)
+        requestQueue.add(stringRequest)
+        //carregarEventosAPI()
+        val intent = Intent(this, ConsultaEvento::class.java)
+        startActivity(intent)
+    }
+
+
+
+
+
+    /*
+    //chamando em outra activity:
+    fun editarEvento() {
+        val intent = Intent(this, EditarEvento::class.java)
+        //intent.putExtra("evento",)
+        startActivity(intent)
+    }
+    */
 
     // Função para fazer update ao clicar em um item da lista
     // Chamar uma tela igual ao de CadastroAtividade
@@ -160,3 +371,10 @@ class ConsultaEvento : AppCompatActivity() {
 
 
 }
+
+    /*
+    // função para itens do spinner - ver como funciona
+    private fun Spinner.selectedItem(desctipoEvento: String) {
+
+    }
+    */

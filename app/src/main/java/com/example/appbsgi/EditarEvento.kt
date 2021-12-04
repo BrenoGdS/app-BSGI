@@ -9,10 +9,14 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.Volley
 import model.Evento
+import android.content.Intent
+
+
+
 
 
 class EditarEvento : AppCompatActivity() {
-/*
+// /*
 
     lateinit var spinnerOrganizacao: Spinner
     lateinit var editTitulo: EditText
@@ -28,13 +32,21 @@ class EditarEvento : AppCompatActivity() {
     lateinit var botaoVoltar: Button
     lateinit var horaEvento: TimePicker
 
+    lateinit var listViewEventos: ListView
+    lateinit var arrayEventos: ArrayList<Evento>
+
     lateinit var evento: Evento
 
+    // recebendo valor da activity anterior
+    lateinit var titulo:String
 
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_evento)
+
+        arrayEventos = ArrayList<Evento>()
 
         spinnerOrganizacao = findViewById(R.id.spinnerOrganizacao)
         editTitulo = findViewById(R.id.editTitulo)
@@ -48,6 +60,7 @@ class EditarEvento : AppCompatActivity() {
         editNumeroEndereco = findViewById(R.id.editNumeroEndereco)
         editComplemento = findViewById(R.id.editComplemento)
         editBairro = findViewById(R.id.editBairro)
+
         botaoSalvarAtividade = findViewById(R.id.botaoSalvarAtividade)
         botaoVoltar = findViewById(R.id.botaoVoltar)
 
@@ -58,10 +71,49 @@ class EditarEvento : AppCompatActivity() {
             //voltar()
         }
 
+        listViewEventos = findViewById(R.id.listViewEventos)
+
+
+        /*
+        // solução do Breno:
+        val it:Intent = this.intent
+        //Recuperei a string da outra activity
+        //val informacao = it.getStringExtra("titulo")
+        */
+
+        // Passando os dados para os campos respectivos:
+            //editTitulo.setText(it.getStringExtra("titulo"))
+        editTitulo.setText(evento.titulo)
+        editCep.setText(evento.cepevento)
+        editEndereco.setText(evento.logradouroevento)
+
+
+        listViewEventos.setOnItemClickListener { parent, view, position, id ->
+        evento = Evento(
+            arrayEventos[position].idevento,
+            arrayEventos[position].idtipoevento,
+            arrayEventos[position].titulo,
+            arrayEventos[position].dataevento,
+            arrayEventos[position].cepevento,
+            arrayEventos[position].idcidadeevento,
+            arrayEventos[position].logradouroevento,
+            arrayEventos[position].numevento,
+            arrayEventos[position].complementoevento,
+            arrayEventos[position].bairroevento,
+            arrayEventos[position].desctipoEvento,
+            arrayEventos[position].nomeOrg,
+            arrayEventos[position].descCidade)
+
+            Toast.makeText(this,"Evento: "+evento,Toast.LENGTH_LONG).show()
 
 
 
-    }
+        } // fim do listView
+        //carregarEventosAPI()
+
+
+
+    } // fim do onCreate
 
 
 
@@ -72,7 +124,7 @@ class EditarEvento : AppCompatActivity() {
     fun editarEvento(){
 
         // VERIFICAR OS CAMPOS DA URL
-        val url = "https://apiaulamobilerodrigo.000webhostapp.com/apiPI/updateEVENTO.php?HTTP_TITULO=${evento.titulo}&HTTP_PAIS=${evento.cepevento}&HTTP_TECNICO=${time.tecnico}&HTTP_ID=${time.id}"
+        val url = "https://apiaulamobilerodrigo.000webhostapp.com/apiPI/updateEVENTO.php?HTTP_TITULO=${evento.titulo}&HTTP_CEPEVENTO=${evento.cepevento}&HTTP_LOGRADOUROEVENTO=${evento.logradouroevento}&HTTP_NUMEVENTO=${evento.numevento}&HTTP_COMPLEMENTOEVENTO=${evento.complementoevento}&HTTP_BAIRROEVENTO=${evento.bairroevento}"
         //val url = ""
         //carregando o url no array de times (requisição)
         //4 parâmetros
@@ -93,7 +145,7 @@ class EditarEvento : AppCompatActivity() {
         //carregarEventosAPI()
 
     }
-*/
+//*/
 
 
 }

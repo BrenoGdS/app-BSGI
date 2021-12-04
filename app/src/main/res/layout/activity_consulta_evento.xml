@@ -26,11 +26,27 @@
             <!-- android:layout_width="300dp"
                 android:layout_height="150dp" -->
 
+            <Button
+                android:id="@+id/tituloConsultarEventos"
+                android:layout_height="wrap_content"
+                style="@style/Titulo"
+                android:visibility="visible"
+                android:text="Consulta de Eventos"/>
+            <!-- Intercâmbio de títulos -->
+            <Button
+                android:id="@+id/tituloEditarEventos"
+                android:layout_height="wrap_content"
+                style="@style/Titulo"
+                android:visibility="gone"
+                android:text="Editar Eventos"/>
+
+            <!--
             <ImageView
                 style="@style/Titulo"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="@string/titPrincipal" />
+                -->
 
             <EditText
                 android:id="@+id/editTituloEvento"
@@ -41,10 +57,10 @@
                 style="@style/Input"
                 android:hint="Título"/>
             <EditText
+                android:id="@+id/editOrganizacao"
                 android:autofillHints="organizacao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editOrganizacao"
                 android:inputType="text"
                 style="@style/Input"
                 android:hint="Nome da organização"/>
@@ -62,6 +78,60 @@
                 style="@style/Spinner"
                 android:id="@+id/spinnerCidade"/>
 
+            <!-- Inputs ocultos -->
+            <!-- Input oculto para CEP-->
+            <EditText
+                android:id="@+id/editCep"
+                style="@style/Input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:hint="CEP"
+                android:inputType="number" />
+            <!-- Input oculto para Logradouro-->
+            <EditText
+                android:id="@+id/editEndereco"
+                style="@style/Input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:hint="Logradouro"
+                android:inputType="text" />
+            <!-- Input oculto para número endereço-->
+            <EditText
+                android:id="@+id/editNumeroEndereco"
+                style="@style/Input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:hint="Número do logradouro"
+                android:inputType="text" />
+            <!-- Input oculto para complemento-->
+            <EditText
+                android:id="@+id/editComplemento"
+                style="@style/Input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:hint="Complemento"
+                android:inputType="text" />
+            <!-- Input oculto para bairro-->
+            <EditText
+                android:id="@+id/editBairro"
+                style="@style/Input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:hint="Bairro"
+                android:inputType="text" />
+
+
+            <!-- Input oculto para hora -->
             <DatePicker
                 android:id="@+id/dataEvento"
                 android:layout_width="match_parent"
@@ -69,31 +139,70 @@
                 android:calendarViewShown="false"
                 android:datePickerMode="spinner" />
 
+            <TimePicker
+                android:id="@+id/horaEvento"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:calendarViewShown="false"
+                android:timePickerMode="spinner"/>
+
             <Button
                 android:id="@+id/buttonPesquisar"
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                style="@style/estiloBotao"
+                style="@style/estiloBotao2"
                 android:text="@string/pesquisar" />
 
+            <!-- Botão oculto para alterar -->
+            <Button
+                android:id="@+id/buttonAlterar"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                style="@style/estiloBotao2"
+                android:visibility="gone"
+                android:text="@string/alterar" />
+            <!-- Botão oculto para limpar -->
+            <Button
+                android:id="@+id/buttonLimpar"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                style="@style/estiloBotao2"
+                android:visibility="gone"
+                android:text="@string/limpar"/>
+            <!-- Botão oculto para excluir -->
+            <Button
+                android:id="@+id/buttonExcluir"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                style="@style/estiloBotao2"
+                android:visibility="gone"
+                android:text="@string/excluir"/>
+
+
             <TextView
+                android:id="@+id/tituloListEventos"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"
+                android:visibility="gone"
                 android:text="Listagem de eventos:"/>
             <ListView
                 android:id="@+id/listViewEventos"
                 style="@style/Input"
                 android:layout_width="match_parent"
-                android:layout_height="405dp" >
+                android:layout_height="405dp"
+                android:visibility="gone">
             </ListView>
 
 
             <Button
                 android:id="@+id/buttonIncluirEvento"
-                style="@style/estiloBotao"
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
+                style="@style/estiloBotao2"
+                android:visibility="visible"
                 android:text="@string/incluirEvento" />
 
 

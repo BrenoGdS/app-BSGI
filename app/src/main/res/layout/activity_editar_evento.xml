@@ -10,8 +10,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-299dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,23 +29,31 @@
                 android:src="@drawable/bsgilogo3d" />
 
 
+            <Button
+                android:id="@+id/tituloEditarEventos"
+                style="@style/Titulo"
+                android:layout_height="wrap_content"
+                android:text="Editar Eventos" />
+            <!--
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:paddingLeft="54dp"
                 android:text="Cadastro de Eventos:" />
-
+            -->
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:paddingLeft="54dp"
                     android:text="Organização:" />
+
                 <Spinner
                     android:id="@+id/spinnerOrganizacao"
                     android:layout_width="229dp"
@@ -70,11 +78,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:paddingLeft="54dp"
                     android:text="Tipo Evento:" />
+
                 <Spinner
                     android:id="@+id/spinnerTipoEvento"
                     android:layout_width="wrap_content"
@@ -90,15 +100,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:calendarViewShown="false"
-                android:datePickerMode="spinner"/>
+                android:datePickerMode="spinner" />
+
             <TimePicker
                 android:id="@+id/horaEvento"
                 android:layout_width="300dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:calendarViewShown="false"
-                android:timePickerMode="spinner"/>
-
+                android:timePickerMode="spinner" />
 
 
             <EditText
@@ -115,11 +125,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="141dp"
                     android:layout_height="match_parent"
                     android:paddingLeft="54dp"
                     android:text="Cidade:" />
+
                 <Spinner
                     android:id="@+id/spinnerCidade"
                     android:layout_width="wrap_content"

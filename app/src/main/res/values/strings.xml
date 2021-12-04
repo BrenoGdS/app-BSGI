@@ -41,8 +41,32 @@
 
     <string-array name="cidade">
         <item>Brasília</item>
+        <item>Aracaju</item>
+        <item>Belém</item>
         <item>Belo Horizonte</item>
+        <item>Boa Vista</item>
+        <item>Campo Grande</item>
+        <item>Cuiabá</item>
+        <item>Curitiba</item>
+        <item>Florianópolis</item>
+        <item>Fortaleza</item>
+        <item>Goiânia</item>
+        <item>João Pessoa</item>
+        <item>Macapá</item>
+        <item>Maceió</item>
+        <item>Manaus</item>
+        <item>Natal</item>
+        <item>Palmas</item>
+        <item>Porto Alegre</item>
+        <item>Porto Velho</item>
+        <item>Recife</item>
         <item>Rio de Janeiro</item>
+        <item>Roraima</item>
+        <item>Salvador</item>
+        <item>São Luís</item>
+        <item>São Paulo</item>
+        <item>Teresina</item>
+        <item>Vitória</item>
         <item>Ouro Preto</item>
     </string-array>
 
