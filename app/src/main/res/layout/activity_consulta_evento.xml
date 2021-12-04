@@ -39,7 +39,6 @@
                 style="@style/Titulo"
                 android:visibility="gone"
                 android:text="Editar Eventos"/>
-
             <!--
             <ImageView
                 style="@style/Titulo"

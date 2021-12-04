@@ -20,11 +20,19 @@
                 android:paddingLeft="15dp"
                 android:layout_marginBottom="8dp"
                 android:src="@drawable/bsgilogo3c"/>
+            <!--
             <ImageView
                 android:id="@+id/tituloPerfil"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 style="@style/Titulo"/>
+                -->
+            <Button
+                android:id="@+id/tituloEditarUsuario"
+                android:layout_height="wrap_content"
+                style="@style/Titulo"
+                android:visibility="visible"
+                android:text="Editar Perfil"/>
 
             <EditText
                 android:id="@+id/editNome"

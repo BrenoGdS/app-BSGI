@@ -59,7 +59,20 @@ class Evento {
         this.idevento = idevento
     }
 
-    //construtor update
+
+    //construtor update teste
+    constructor(titulo:String, cepevento:Int, logradouroevento:String, numevento:Int, complementoevento:String, bairroevento:String, idevento:Int) {
+        this.titulo = titulo
+        this.cepevento = cepevento
+        this.logradouroevento = logradouroevento
+        this.numevento = numevento
+        this.complementoevento = complementoevento
+        this.bairroevento = bairroevento
+        this.idevento = idevento
+    }
+
+    /*
+    //construtor update completo
     constructor(titulo:String, nomeOrg:String, desctipoEvento:String, dataevento:String, cepevento:Int, descCidade:String,
                 logradouroevento:String, numevento:Int, complementoevento:String, bairroevento:String, idevento:Int) {
         this.titulo = titulo
@@ -75,6 +88,8 @@ class Evento {
         this.idevento = idevento
     }
     //this.idtipoevento = idtipoevento
+    */
+
 
 
 

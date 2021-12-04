@@ -12,12 +12,11 @@ import org.json.JSONArray
 import java.time.LocalDateTime
 import com.android.volley.toolbox.StringRequest as StringRequest1
 import java.util.ArrayList
+import android.widget.ArrayAdapter
 //import java.net.URL
 import org.json.JSONObject
 import org.json.JSONException
-
-import android.widget.ArrayAdapter
-import androidx.core.view.get
+//import androidx.core.view.get
 
 
 class ConsultaEvento : AppCompatActivity() {
@@ -31,20 +30,16 @@ class ConsultaEvento : AppCompatActivity() {
     lateinit var dataEvento: DatePicker
     lateinit var horaEvento: TimePicker
 
-    //Novo 1203 10:43h
+    //Novo
     lateinit var editCep: EditText
     lateinit var editEndereco: EditText
     lateinit var editNumeroEndereco: EditText
     lateinit var editComplemento: EditText
     lateinit var editBairro: EditText
     lateinit var tituloListEventos: TextView
+
     lateinit var tituloEditarEventos: Button
     lateinit var tituloConsultarEventos:Button
-
-    //Novo 1203 13:36
-    //lateinit var tipoEvento: Spinner
-
-
     lateinit var buttonPesquisar: Button
     lateinit var buttonAlterar: Button // oculto
     lateinit var buttonLimpar: Button  // oculto
@@ -68,15 +63,14 @@ class ConsultaEvento : AppCompatActivity() {
         dataEvento = findViewById(R.id.dataEvento)
         horaEvento = findViewById(R.id.horaEvento)
         horaEvento.setIs24HourView(true) // ajusta o TimePicker para 24 horas
-        //Novo 1203 13:36
-        //tipoEvento = findViewById(R.id.spinnerTipoEvento)
+
         spinnerTipoEvento = findViewById(R.id.spinnerTipoEvento)
 
         buttonPesquisar = findViewById(R.id.buttonPesquisar)
         buttonIncluirEvento = findViewById(R.id.buttonIncluirEvento)
         // //listViewEventos = findViewById(R.id.listViewEventos)
 
-        //Novo 1203 10:43h
+        //Novo
         editCep = findViewById(R.id.editCep)
         editEndereco = findViewById(R.id.editEndereco)
         editNumeroEndereco=findViewById(R.id.editNumeroEndereco)
@@ -99,17 +93,6 @@ class ConsultaEvento : AppCompatActivity() {
                 editBairro.text.toString()
             )
         */
-
-
-            /*
-            // sem erros
-            evento = Evento(
-                editTituloEvento.text.toString(),
-                editOrganizacao.text.toString(),
-                spinnerTipoEvento.selectedItem as String,
-                spinnerCidade.selectedItem as String,
-                dataEvento.isSelected as String
-            )*/
 
 
             /*
@@ -161,8 +144,6 @@ class ConsultaEvento : AppCompatActivity() {
 
 
 
-
-
         listViewEventos = findViewById(R.id.listViewEventos)
         listViewEventos.setOnItemClickListener { parent, view, position, id ->
             evento = Evento(
@@ -184,14 +165,10 @@ class ConsultaEvento : AppCompatActivity() {
 
 
             // Passando os dados para os campos respectivos:
+            editTituloEvento.setText(evento.titulo)
+            editOrganizacao.setText(evento.nomeOrg)
 
             editCep.setText(evento.cepevento.toString())
-            editTituloEvento.setText(evento.titulo)
-            //1203
-            //spinnerTipoEvento.selectedItem(evento.desctipoEvento)
-            //spinnerTipoEvento.isSelected(evento.desctipoEvento)
-
-            editOrganizacao.setText(evento.nomeOrg)
             editEndereco.setText(evento.logradouroevento)
             editNumeroEndereco.setText(evento.numevento.toString())
             editComplemento.setText(evento.complementoevento)
@@ -204,7 +181,6 @@ class ConsultaEvento : AppCompatActivity() {
             buttonAlterar.visibility = Button.VISIBLE
             buttonLimpar.visibility  = Button.VISIBLE
             buttonExcluir.visibility = Button.VISIBLE
-            // Novo 1203 10:43h
             tituloEditarEventos.visibility=Button.VISIBLE
             tituloConsultarEventos.visibility=Button.GONE
             editCep.visibility = EditText.VISIBLE
@@ -212,7 +188,6 @@ class ConsultaEvento : AppCompatActivity() {
             editNumeroEndereco.visibility=EditText.VISIBLE
             editComplemento.visibility = EditText.VISIBLE
             editBairro.visibility = EditText.VISIBLE
-            //Novo 1203 11:42h
             horaEvento.visibility = TimePicker.VISIBLE
             tituloListEventos.visibility = TextView.GONE
             listViewEventos.visibility = ListView.GONE
@@ -278,6 +253,7 @@ class ConsultaEvento : AppCompatActivity() {
         )
         val requestQueue = Volley.newRequestQueue(this)
         requestQueue.add(stringRequest)
+
         //tituloListEventos.requestFocus()
         //listViewEventos.setSelection(0)
         listViewEventos.setSelection(1)
@@ -353,6 +329,7 @@ class ConsultaEvento : AppCompatActivity() {
                 "&HTTP_CEPEVENTO=${evento.cepevento}" +
                 "&HTTP_LOGRADOUROEVENTO=${evento.logradouroevento}" +
                 "&HTTP_NUMEVENTO=${evento.numevento}" +
+                "&HTTP_COMPLEMENTOEVENTO=${evento.complementoevento}" +
                 "&HTTP_BAIRROEVENTO=${evento.bairroevento}" +
                 "&HTTP_ID=${evento.idevento}"
         //val url = ""
@@ -380,21 +357,3 @@ class ConsultaEvento : AppCompatActivity() {
 
 
 }
-
-
-    /*
-    //chamando em outra activity:
-    fun editarEvento() {
-        val intent = Intent(this, EditarEvento::class.java)
-        //intent.putExtra("evento",)
-        startActivity(intent)
-    }
-    */
-
-
-    /*
-    // função para itens do spinner - ver como funciona
-    private fun Spinner.selectedItem(desctipoEvento: String) {
-
-    }
-    */

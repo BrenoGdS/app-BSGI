@@ -3,11 +3,10 @@ package com.example.appbsgi
 
 import android.content.ContentValues
 import android.content.Intent
-//import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.app.DownloadManager
-import android.provider.SyncStateContract.Helpers.update
+//import android.app.DownloadManager
+//import android.provider.SyncStateContract.Helpers.update
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
@@ -16,6 +15,7 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import model.Evento
 import model.Usuario
 
 class Cadastro : AppCompatActivity() {
@@ -36,7 +36,6 @@ class Cadastro : AppCompatActivity() {
 
     lateinit var usuario: Usuario
 
-    // NÃO USA PARA API:
     lateinit var values: ContentValues
 
 
@@ -72,6 +71,14 @@ class Cadastro : AppCompatActivity() {
             //update()
         }
         */
+        // NÃO USA PARA API:
+
+        /*
+        listViewUsuarios = findViewById(R.id.listViewEventos)
+        listViewUsuarios.setOnItemClickListener { parent, view, position, id ->
+            usuario = Usuario()}
+
+         */
 
 
 
@@ -81,34 +88,22 @@ class Cadastro : AppCompatActivity() {
 
 
     // INSERIR Usuário (API)
-    // falta verificar se usuário já está cadastrado
+    // falta trazer nome do usuário se já cadastrado
     fun insert(){
         usuario = Usuario(
             editNome.text.toString(),
-            editCelular.text.toString().toInt(),     // VERIFICAR AQUI
+            editCelular.text.toString().toInt(),
             sexo.selectedItem.toString(),
             editEmail.text.toString(),
             editSenha.text.toString()
         )
-
-
-        //Funciona - achar o local do fluxo
-        //if (!editNome.equals("null")) {
-        //    Toast.makeText(this, "Favor preencher o nome", Toast.LENGTH_LONG).show()
-        //}
-        //else if (!editEmail.equals("null")){
-        //    Toast.makeText(this, "Favor preencher  o e-mail", Toast.LENGTH_LONG).show()
-
-
-
         val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/addUsuario.php?HTTP_NOME=${usuario.nome}&HTTP_CELULAR=${usuario.celular}&HTTP_SEXO=${usuario.sexo}&HTTP_EMAIL=${usuario.email}&HTTP_SENHA=${usuario.senha}"
 
-            //val stringRequest = StringRequest(
         val stringRequest = StringRequest(
             Request.Method.GET,
             url,
             Response.Listener { s->
-                    Toast.makeText(this, "Inserido com sucesso $url", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Inserido com sucesso", Toast.LENGTH_LONG).show()
             },
             Response.ErrorListener { error->
                 Toast.makeText(this,error.message,Toast.LENGTH_LONG).show()
@@ -163,8 +158,6 @@ class Cadastro : AppCompatActivity() {
 
 
 
-
-
     /*
     // posso deletar
     fun acessar(){
@@ -173,35 +166,5 @@ class Cadastro : AppCompatActivity() {
         startActivity(intent)
     }
     */
-
-
-
-
-
-
-    /*
-    // NÃO USA PARA API:
-    fun linkarDados(){
-        //variáveis Kotlin (acima) -> variáveis xml
-        editNome  = findViewById(R.id.editNome)
-        editCelular = findViewById(R.id.editCelular)
-        sexo = findViewById(R.id.spinnerSexo)
-
-        editEmail = findViewById(R.id.editEmail)
-        editSenha = findViewById(R.id.editSenha)
-        editRepetirSenha = findViewById(R.id.editRepetirSenha)
-
-        botaoCadastrar = findViewById(R.id.idBotaoCadastrar)
-        botaoCadastrar.setOnClickListener(){
-            insert()
-            //update()
-        }
-        botaoEditarPerfil = findViewById(R.id.idBotaoEditarPerfil)
-        botaoEditarPerfil.setOnClickListener(){
-            editarPerfil()
-        }
-    }
-    */
-
 
 }

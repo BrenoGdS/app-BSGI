@@ -2,7 +2,7 @@ package com.example.appbsgi
 
 import android.content.ContentValues
 import android.content.Intent
-import android.database.sqlite.SQLiteDatabase
+//import android.database.sqlite.SQLiteDatabase
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

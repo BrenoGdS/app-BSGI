@@ -14,16 +14,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!--
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-                -->
 
             <ImageView
                 android:id="@+id/idLogo"
@@ -41,7 +31,7 @@
                 android:hint="E-Mail"
                 android:inputType="textEmailAddress"
                 android:layout_gravity="center"/>
-            <!-- android:inputType="textEmailAddress" -->
+
             <EditText
                 android:id="@+id/editSenha"
                 android:layout_width="300dp"
@@ -82,6 +72,7 @@
                 android:layout_gravity="center"
                 android:text="@string/acessar"/>
             <!--android:onClick="botaoAcessar" -->
+            <!--android:text="@string/acessar" -->
 
             <Button
                 android:id="@+id/idBotaoLogin"

@@ -4,7 +4,6 @@ import android.content.Intent
 //import android.content.ContentValues
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-//import android.database.sqlite.SQLiteDatabase
 //import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -23,8 +22,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var editSenha: EditText
     lateinit var botaoAcessar: Button
     lateinit var botaoLogin:   Button
-
-    //sem uso
 
     lateinit var arrayUsuario: ArrayList<Usuario>
     lateinit var usuario: Usuario
@@ -60,51 +57,15 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        /*
-        val acessar = findViewById<Button>(R.id.idBotaoAcessar)
-        acessar.setOnClickListener(){
-            acessar()
-        }*/
-        // NÃO USA PARA API:
-                //linkarDados()
-                //criarAbrirBD()
-
     }
 
 
-    // Precisa?
-    // NÃO USA PARA API:
-    /*
-    fun linkarDados(){
-        //variáveis Kotlin (acima) -> variáveis xml
-        editEmail = findViewById(R.id.editEmail)
-        editSenha = findViewById(R.id.editSenha)
-
-        botaoAcessar = findViewById(R.id.idBotaoAcessar)
-        botaoAcessar.setOnClickListener(){
-            acessar()
-        }
-
-        /*
-        botaoLogin = findViewById(R.id.idBotaoLogin)
-        botaoLogin.setOnClickListener(){
-            validarUsuario1()
-        }*/
-
-    }*/
-
-
-
-
     fun acessar(){
-        //Toast.makeText(this, "Bem-vindo(a)", Toast.LENGTH_LONG).show()
-
         if (!editEmail.text.toString().equals("")) {
                 Toast.makeText(this, "Bem-vindo(a)1 $editEmail.text.toString()", Toast.LENGTH_LONG).show()
             }else{
-                Toast.makeText(this, "Bem-vindo(a)2 ", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Bem-vindo(a)", Toast.LENGTH_LONG).show()
             }
-
 
         val intent = Intent(this, ConsultaEvento::class.java)
         //val intent = Intent(this, Principal::class.java)  // opção anterior de teste
