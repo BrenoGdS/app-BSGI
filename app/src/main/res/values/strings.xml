@@ -25,9 +25,9 @@
     </string-array>
 
     <string-array name="organizacao">
-        <item>Organizacao 1</item>
-        <item>Organizacao 2</item>
-        <item>Organizacao xpto</item>
+        <item>Organizacao Xpto</item>
+        <item>Organizacao XYZ</item>
+        <item>Organizacao YYZ</item>
     </string-array>
 
     <string-array name="tipoEvento">

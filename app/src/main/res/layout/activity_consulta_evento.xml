@@ -187,13 +187,16 @@
                 android:layout_marginLeft="15dp"
                 android:visibility="gone"
                 android:text="Listagem de eventos:"/>
+
             <ListView
                 android:id="@+id/listViewEventos"
                 style="@style/Input"
                 android:layout_width="match_parent"
-                android:layout_height="405dp"
+                android:layout_height="480dp"
                 android:visibility="gone">
             </ListView>
+            <!--android:layout_height="405dp"-->
+            <!--android:minHeight="500dp" -->
 
 
             <Button
