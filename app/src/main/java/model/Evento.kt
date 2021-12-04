@@ -59,7 +59,27 @@ class Evento {
         this.idevento = idevento
     }
 
-    //construtor teste
+    //construtor update
+    constructor(titulo:String, nomeOrg:String, desctipoEvento:String, dataevento:String, cepevento:Int, descCidade:String,
+                logradouroevento:String, numevento:Int, complementoevento:String, bairroevento:String, idevento:Int) {
+        this.titulo = titulo
+        this.nomeOrg = nomeOrg
+        this.desctipoEvento = desctipoEvento
+        this.dataevento = dataevento
+        this.cepevento = cepevento
+        this.descCidade = descCidade
+        this.logradouroevento = logradouroevento
+        this.numevento = numevento
+        this.complementoevento = complementoevento
+        this.bairroevento = bairroevento
+        this.idevento = idevento
+    }
+    //this.idtipoevento = idtipoevento
+
+
+
+
+        //construtor teste
     constructor(titulo: String,nomeOrg: String,desctipoEvento: String,logradouroevento: String,complementoevento: String,bairroevento: String,){
         this.titulo = titulo
         this.nomeOrg = nomeOrg
@@ -81,6 +101,8 @@ class Evento {
         this.complementoevento = complementoevento
         this.bairroevento = bairroevento
     }
+
+
 
 
     override fun toString(): String {

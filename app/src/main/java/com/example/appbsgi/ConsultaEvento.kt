@@ -138,7 +138,7 @@ class ConsultaEvento : AppCompatActivity() {
 
         buttonAlterar =findViewById(R.id.buttonAlterar)
         buttonAlterar.setOnClickListener{
-            //update()
+            editarEvento()
         }
         buttonLimpar =findViewById(R.id.buttonLimpar)
         buttonLimpar.setOnClickListener{
@@ -301,8 +301,11 @@ class ConsultaEvento : AppCompatActivity() {
 
 
     fun apagar(){
+        // Precisa dessas linhas para usar o construtor delete()
         //val idevento=0
-        //evento = Evento()
+        //evento = Evento(idevento)
+
+        // Funcionando
         val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/deleteEvento.php?HTTP_ID=${evento.idevento}"
         //carregando o url no array de eventos (requisição)
         //4 parâmetros
@@ -330,22 +333,28 @@ class ConsultaEvento : AppCompatActivity() {
 
 
 
-    /*
-    //chamando em outra activity:
-    fun editarEvento() {
-        val intent = Intent(this, EditarEvento::class.java)
-        //intent.putExtra("evento",)
-        startActivity(intent)
-    }
-    */
-
     // Função para fazer update ao clicar em um item da lista
     // Chamar uma tela igual ao de CadastroAtividade
+
+    //verificar:
+    //"&HTTP_HORA=${evento.hora}" +
+    // adicionar novamente:
     /*
+    "&HTTP_NOMEORG=${evento.nomeOrg} + " +
+    "&HTTP_DESCTIPOEVENTO=${evento.desctipoEvento}" +
+    "&HTTP_DATA=${evento.dataevento}" +
+    "&HTTP_DESCCIDADE=${evento.descCidade}" +
+    */
     fun editarEvento(){
 
         // VERIFICAR OS CAMPOS DA URL
-        val url = "https://apiaulamobilerodrigo.000webhostapp.com/apiPI/updateEVENTO.php?HTTP_TIME=${time.time}&HTTP_PAIS=${time.pais}&HTTP_TECNICO=${time.tecnico}&HTTP_ID=${time.id}"
+        val url = "https://apiaulamobilerodrigo.000webhostapp.com/apiPI/updateEVENTO.php?" +
+                "HTTP_TITULO=${evento.titulo}" +
+                "&HTTP_CEPEVENTO=${evento.cepevento}" +
+                "&HTTP_LOGRADOUROEVENTO=${evento.logradouroevento}" +
+                "&HTTP_NUMEVENTO=${evento.numevento}" +
+                "&HTTP_BAIRROEVENTO=${evento.bairroevento}" +
+                "&HTTP_ID=${evento.idevento}"
         //val url = ""
         //carregando o url no array de times (requisição)
         //4 parâmetros
@@ -365,12 +374,23 @@ class ConsultaEvento : AppCompatActivity() {
         requestQueue.add(stringRequest)
         //carregarEventosAPI()
 
-    }*/
+    }
 
 
 
 
 }
+
+
+    /*
+    //chamando em outra activity:
+    fun editarEvento() {
+        val intent = Intent(this, EditarEvento::class.java)
+        //intent.putExtra("evento",)
+        startActivity(intent)
+    }
+    */
+
 
     /*
     // função para itens do spinner - ver como funciona
