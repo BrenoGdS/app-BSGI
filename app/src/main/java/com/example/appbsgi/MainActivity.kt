@@ -4,11 +4,8 @@ import android.content.Intent
 //import android.content.ContentValues
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.*
 //import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -25,6 +22,9 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var arrayUsuario: ArrayList<Usuario>
     lateinit var usuario: Usuario
+
+    lateinit var nomeUser: String
+    //lateinit var nomeUser: Usuario(usuario.nome)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,8 +61,11 @@ class MainActivity : AppCompatActivity() {
 
 
     fun acessar(){
+
         if (!editEmail.text.toString().equals("")) {
-                Toast.makeText(this, "Bem-vindo(a)1 $editEmail.text.toString()", Toast.LENGTH_LONG).show()
+            val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/getUsuario.php?HTTP_EMAIL=${usuario.email}"
+
+                Toast.makeText(this, "Bem-vindo(a) ${usuario.email}", Toast.LENGTH_LONG).show()
             }else{
                 Toast.makeText(this, "Bem-vindo(a)", Toast.LENGTH_LONG).show()
             }
@@ -70,8 +73,8 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, ConsultaEvento::class.java)
         //val intent = Intent(this, Principal::class.java)  // opção anterior de teste
         startActivity(intent)
-    }
 
+    }
 
     fun cadastroNovo(){
         val intent = Intent(this, Cadastro::class.java)
@@ -118,10 +121,6 @@ class MainActivity : AppCompatActivity() {
         val requestQueue = Volley.newRequestQueue(this)
         requestQueue.add(stringRequest)
     }
-
-
-
-
 
 
 

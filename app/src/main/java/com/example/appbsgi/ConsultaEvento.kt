@@ -12,7 +12,7 @@ import org.json.JSONArray
 import java.time.LocalDateTime
 import com.android.volley.toolbox.StringRequest as StringRequest1
 import java.util.ArrayList
-//import java.net.URL
+import java.net.URL
 import org.json.JSONObject
 import org.json.JSONException
 
@@ -349,7 +349,6 @@ class ConsultaEvento : AppCompatActivity() {
 
 
     // Função para fazer update ao clicar em um item da lista
-    // Chamar uma tela igual ao de CadastroAtividade
 
     //verificar:
     //"&HTTP_HORA=${evento.hora}" +
@@ -361,21 +360,33 @@ class ConsultaEvento : AppCompatActivity() {
     "&HTTP_DESCCIDADE=${evento.descCidade}" +
     */
     fun editarEvento(){
+        // teste 0512
+        evento = Evento(
+            editTituloEvento.text.toString(),
+            editCep.text.toString(),
+            //editCep.Int.toString(),   // está passando mesmo assim (verif)
+            //editOrganizacao.text.toString(),
+            //spinnerTipoEvento.selectedItem as String,
+            editEndereco.text.toString(),
+            editNumeroEndereco.text.toString(),
+            editComplemento.text.toString(),
+            editBairro.text.toString()
+        )
+
         // VERIFICAR OS CAMPOS DA URL
         val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/updateEvento.php?" +
                 "HTTP_TITULO=${evento.titulo}" +
                 "&HTTP_CEPEVENTO=${evento.cepevento}" +
-                "&HTTP_DESCCIDADE=${evento.descCidade}" +
                 "&HTTP_LOGRADOUROEVENTO=${evento.logradouroevento}" +
                 "&HTTP_NUMEVENTO=${evento.numevento}" +
                 "&HTTP_COMPLEMENTOEVENTO=${evento.complementoevento}" +
                 "&HTTP_BAIRROEVENTO=${evento.bairroevento}" +
                 "&HTTP_ID=${evento.idevento}"
 
-        //carregando o url no array de times (requisição)
+        //carregando o url no array de eventos (requisição)
         //4 parâmetros
-        val stringRequest = StringRequest1(
         //val stringRequest = com.android.volley.toolbox.StringRequest(
+        val stringRequest = StringRequest1(
             Request.Method.GET,
             url,
             Response.Listener { s ->

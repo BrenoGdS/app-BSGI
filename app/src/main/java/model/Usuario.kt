@@ -64,6 +64,13 @@ class Usuario {
     }
 
 
+    // temp
+    constructor(id:Int, email: String,nome: String){
+        this.id = id
+        this.email = email
+        this.nome  = nome
+    }
+
 
     override fun toString(): String {
         return "USUÁRIO: (id=$id, nome='$nome', celular=$celular, sexo='$sexo', email='$email', senha='$senha')"
