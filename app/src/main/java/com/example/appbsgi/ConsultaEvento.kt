@@ -12,12 +12,12 @@ import org.json.JSONArray
 import java.time.LocalDateTime
 import com.android.volley.toolbox.StringRequest as StringRequest1
 import java.util.ArrayList
-import java.net.URL
+//import java.net.URL
 import org.json.JSONObject
 import org.json.JSONException
-
+//import androidx.core.view.get
 import android.widget.ArrayAdapter
-import androidx.core.view.get
+
 
 
 class ConsultaEvento : AppCompatActivity() {
@@ -31,7 +31,6 @@ class ConsultaEvento : AppCompatActivity() {
     lateinit var dataEvento: DatePicker
     lateinit var horaEvento: TimePicker
 
-    //Novo
     lateinit var editCep: EditText
     lateinit var editEndereco: EditText
     lateinit var editNumeroEndereco: EditText
@@ -40,7 +39,6 @@ class ConsultaEvento : AppCompatActivity() {
     lateinit var tituloListEventos: TextView
     lateinit var tituloEditarEventos: Button
     lateinit var tituloConsultarEventos:Button
-
 
     lateinit var buttonPesquisar: Button
     lateinit var buttonAlterar: Button // oculto
@@ -65,15 +63,13 @@ class ConsultaEvento : AppCompatActivity() {
         dataEvento = findViewById(R.id.dataEvento)
         horaEvento = findViewById(R.id.horaEvento)
         horaEvento.setIs24HourView(true) // ajusta o TimePicker para 24 horas
-        //Novo
-        //tipoEvento = findViewById(R.id.spinnerTipoEvento)
+
         spinnerTipoEvento = findViewById(R.id.spinnerTipoEvento)
 
         buttonPesquisar = findViewById(R.id.buttonPesquisar)
         buttonIncluirEvento = findViewById(R.id.buttonIncluirEvento)
-        // //listViewEventos = findViewById(R.id.listViewEventos)
 
-        //Novo
+
         editCep = findViewById(R.id.editCep)
         editEndereco = findViewById(R.id.editEndereco)
         editNumeroEndereco=findViewById(R.id.editNumeroEndereco)
@@ -84,47 +80,6 @@ class ConsultaEvento : AppCompatActivity() {
         tituloConsultarEventos=findViewById(R.id.tituloConsultarEventos)
 
 
-        //Testando novo objeto:     // sem erros
-        /*
-        evento = Evento(
-            editTituloEvento.text.toString(),
-            editOrganizacao.text.toString(),
-            spinnerTipoEvento.selectedItem as String,
-            //editCep.Int.toString(),   // está passando mesmo assim (verif)
-            editEndereco.text.toString(),
-            editComplemento.text.toString(),
-            editBairro.text.toString()
-        )
-    */
-
-
-        /*
-        // sem erros
-        evento = Evento(
-            editTituloEvento.text.toString(),
-            editOrganizacao.text.toString(),
-            spinnerTipoEvento.selectedItem as String,
-            spinnerCidade.selectedItem as String,
-            dataEvento.isSelected as String
-        )*/
-
-
-        /*
-        arrayEventos[position].idevento,
-
-        arrayEventos[position].dataevento,
-        arrayEventos[position].cepevento,
-        arrayEventos[position].idcidadeevento,
-        arrayEventos[position].logradouroevento,
-        arrayEventos[position].numevento,
-        arrayEventos[position].complementoevento,
-        arrayEventos[position].bairroevento,
-        arrayEventos[position].desctipoEvento)
-        */
-
-
-
-        //listViewEventos.selectedItem
 
         buttonPesquisar.setOnClickListener() {
             carregarEventosAPI()
@@ -145,17 +100,6 @@ class ConsultaEvento : AppCompatActivity() {
         buttonExcluir.setOnClickListener {
             apagar()
         }
-
-
-
-        // TRECHO P/ TENTAR POPULAR OS SPINNERS
-        /*
-        */
-
-
-
-        // FIM DO TRECHO DE TESTE
-
 
 
 
@@ -191,9 +135,6 @@ class ConsultaEvento : AppCompatActivity() {
 
             ativarDesativarLayoutEdicao(true);
 
-
-
-            //carregarEventosAPI()
 
         } //fim listViewEventos
     } // fim onCreate
@@ -293,7 +234,7 @@ class ConsultaEvento : AppCompatActivity() {
             editNumeroEndereco.visibility=EditText.VISIBLE
             editComplemento.visibility = EditText.VISIBLE
             editBairro.visibility = EditText.VISIBLE
-            //Novo
+
             horaEvento.visibility = TimePicker.VISIBLE
             tituloListEventos.visibility = TextView.GONE
             listViewEventos.visibility = ListView.GONE
@@ -313,10 +254,10 @@ class ConsultaEvento : AppCompatActivity() {
             editNumeroEndereco.visibility=EditText.GONE
             editComplemento.visibility = EditText.GONE
             editBairro.visibility = EditText.GONE
-            //Novo
+
             horaEvento.visibility = TimePicker.GONE
             tituloListEventos.visibility = TextView.VISIBLE
-            //listViewEventos.visibility = ListView.VISIBLE
+            listViewEventos.visibility = ListView.GONE
         }
     }
 
@@ -355,31 +296,16 @@ class ConsultaEvento : AppCompatActivity() {
 
 
     // Função para fazer update ao clicar em um item da lista
-
-    //verificar:
-    //"&HTTP_HORA=${evento.hora}" +
-    // adicionar novamente:
-    /*
-    "&HTTP_NOMEORG=${evento.nomeOrg} + " +
-    "&HTTP_DESCTIPOEVENTO=${evento.desctipoEvento}" +
-    "&HTTP_DATA=${evento.dataevento}" +
-    "&HTTP_DESCCIDADE=${evento.descCidade}" +
-    */
     fun editarEvento(){
-        // teste 0512
         var eventoEditado = Evento(
             editTituloEvento.text.toString(),
             editCep.text.toString(),
-            //editCep.Int.toString(),   // está passando mesmo assim (verif)
-            //editOrganizacao.text.toString(),
-            //spinnerTipoEvento.selectedItem as String,
             editEndereco.text.toString(),
             editNumeroEndereco.text.toString(),
             editComplemento.text.toString(),
             editBairro.text.toString()
         )
 
-        // VERIFICAR OS CAMPOS DA URL
         val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/updateEvento.php?" +
                 "HTTP_TITULO=${eventoEditado.titulo}" +
                 "&HTTP_CEPEVENTO=${eventoEditado.cepevento}" +
@@ -391,7 +317,6 @@ class ConsultaEvento : AppCompatActivity() {
 
         //carregando o url no array de eventos (requisição)
         //4 parâmetros
-        //val stringRequest = com.android.volley.toolbox.StringRequest(
         val stringRequest = StringRequest1(
             Request.Method.GET,
             url,
@@ -409,6 +334,7 @@ class ConsultaEvento : AppCompatActivity() {
 
         arrayEventos.clear()
         listViewEventos.setAdapter(null)
+        listViewEventos.visibility = ListView.GONE
         ativarDesativarLayoutEdicao(false)
         carregarEventosAPI()
     }

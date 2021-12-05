@@ -62,29 +62,7 @@ class Cadastro : AppCompatActivity() {
         }
 
 
-        // provisório p/ teste:
-        /*
-        botaoEditarPerfil = findViewById<Button>(R.id.idBotaoEditarPerfil)
-        botaoEditarPerfil.setOnClickListener(){
-            val intent = Intent(this, Perfil::class.java)
-            startActivity(intent)
-            //update()
-        }
-        */
-        // NÃO USA PARA API:
-
-        /*
-        listViewUsuarios = findViewById(R.id.listViewEventos)
-        listViewUsuarios.setOnItemClickListener { parent, view, position, id ->
-            usuario = Usuario()}
-
-         */
-
-
-
     }
-
-
 
 
     // INSERIR Usuário (API)
@@ -155,16 +133,5 @@ class Cadastro : AppCompatActivity() {
     }
 
 
-
-
-
-    /*
-    // posso deletar
-    fun acessar(){
-        Toast.makeText(this,"Verificado com sucesso", Toast.LENGTH_LONG).show()
-        val intent = Intent(this, Principal::class.java)
-        startActivity(intent)
-    }
-    */
 
 }
