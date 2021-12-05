@@ -209,6 +209,12 @@ class ConsultaEvento : AppCompatActivity() {
             spinnerCidade.selectedItem as String,
             dataEvento.year.toString() + '-' + (dataEvento.month + 1).toString() + '-' + dataEvento.dayOfMonth.toString()
         )
+        if(evento.descCidade == "Selecione"){
+            evento.descCidade = "";
+        }
+        if(evento.desctipoEvento == "Selecione"){
+            evento.desctipoEvento = "";
+        }
         val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/getEvento.php?" +
                 "HTTP_TITULO=${evento.titulo}" +
                 "&HTTP_NOMEORG=${evento.nomeOrg}" +

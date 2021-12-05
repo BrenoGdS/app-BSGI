@@ -31,6 +31,7 @@
     </string-array>
 
     <string-array name="tipoEvento">
+        <item>Selecione</item>
         <item>Reunião de Palestra</item>
         <item>Reunião de Bloco</item>
         <item>Encontro Cultural</item>
@@ -40,6 +41,7 @@
     </string-array>
 
     <string-array name="cidade">
+        <item>Selecione</item>
         <item>Brasília</item>
         <item>Aracaju</item>
         <item>Belém</item>
