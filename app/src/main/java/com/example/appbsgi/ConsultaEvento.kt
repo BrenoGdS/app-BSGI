@@ -367,7 +367,7 @@ class ConsultaEvento : AppCompatActivity() {
     */
     fun editarEvento(){
         // teste 0512
-        evento = Evento(
+        var eventoEditado = Evento(
             editTituloEvento.text.toString(),
             editCep.text.toString(),
             //editCep.Int.toString(),   // está passando mesmo assim (verif)
@@ -381,12 +381,12 @@ class ConsultaEvento : AppCompatActivity() {
 
         // VERIFICAR OS CAMPOS DA URL
         val url = "https://apimobileaularodrigo.000webhostapp.com/apiPI/updateEvento.php?" +
-                "HTTP_TITULO=${evento.titulo}" +
-                "&HTTP_CEPEVENTO=${evento.cepevento}" +
-                "&HTTP_LOGRADOUROEVENTO=${evento.logradouroevento}" +
-                "&HTTP_NUMEVENTO=${evento.numevento}" +
-                "&HTTP_COMPLEMENTOEVENTO=${evento.complementoevento}" +
-                "&HTTP_BAIRROEVENTO=${evento.bairroevento}" +
+                "HTTP_TITULO=${eventoEditado.titulo}" +
+                "&HTTP_CEPEVENTO=${eventoEditado.cepevento}" +
+                "&HTTP_LOGRADOUROEVENTO=${eventoEditado.logradouroevento}" +
+                "&HTTP_NUMEVENTO=${eventoEditado.numevento}" +
+                "&HTTP_COMPLEMENTOEVENTO=${eventoEditado.complementoevento}" +
+                "&HTTP_BAIRROEVENTO=${eventoEditado.bairroevento}" +
                 "&HTTP_ID=${evento.idevento}"
 
         //carregando o url no array de eventos (requisição)
